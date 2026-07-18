@@ -111,10 +111,17 @@ export function Navbar() {
                 </Link>
               ))}
               <a
+                href={`tel:+${WHATSAPP_NUMBER}`}
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full border border-[#0B2545]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#0B2545]"
+              >
+                <Phone className="h-4 w-4 text-[#D4AF37]" />
+                {WHATSAPP_DISPLAY}
+              </a>
+              <a
                 href={waLink("Hello, I want to inquire about your services.")}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full gradient-gold px-4 py-2.5 text-sm font-semibold text-[#0B2545]"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow hover:bg-[#1EBE57]"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Us
