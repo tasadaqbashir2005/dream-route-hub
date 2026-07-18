@@ -17,16 +17,24 @@ export function Footer() {
             Trusted visa consultants delivering premium international visa and Saudi Khidmat services with unmatched expertise and personal care.
           </p>
           <div className="mt-5 flex gap-3">
-            {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37]"
-                aria-label="Social link"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37]"
+              aria-label="Instagram — @sshahidprime"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37]"
+              aria-label="Facebook — sshahidprime"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
           </div>
         </div>
 
