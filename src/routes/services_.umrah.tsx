@@ -83,10 +83,6 @@ function UmrahPage() {
               )}
               <div className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37]">Umrah Package</div>
               <h4 className={`mt-2 font-serif text-2xl font-bold ${p.featured ? "text-white" : "text-[#0B2545]"}`}>{p.name}</h4>
-              <div className="mt-5 flex items-baseline gap-1">
-                <span className={`font-serif text-5xl font-bold ${p.featured ? "text-[#D4AF37]" : "text-[#0B2545]"}`}>{p.price}</span>
-                <span className={`text-sm ${p.featured ? "text-white/70" : "text-slate-500"}`}>{p.unit}</span>
-              </div>
               <ul className={`mt-6 space-y-3 text-sm ${p.featured ? "text-white/85" : "text-slate-600"}`}>
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2">
