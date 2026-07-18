@@ -66,7 +66,7 @@ const testimonials = [
   { name: "Ahmed R.", role: "Schengen Visa — Italy", text: "Impeccable service. My Schengen visa was approved without a single hiccup. Highly professional team." },
   { name: "Sana K.", role: "Study Visa — Germany", text: "They guided me through every step of the German study visa process. I owe my new life to them." },
   { name: "Bilal M.", role: "Umrah — 3 Month", text: "Booked my Umrah with SHAHID PRIME. Everything was arranged flawlessly. May Allah bless the team." },
-  { name: "Fatima J.", role: "Kafala Transfer", role2: "Saudi Khidmat", text: "Handled my Naqal Kafala remotely from Pakistan. Fast, transparent, and reliable service." },
+  { name: "Fatima J.", role: "Saudi Khidmat — Kafala", text: "Handled my Naqal Kafala remotely from Pakistan. Fast, transparent, and reliable service." },
 ];
 
 function HomePage() {
