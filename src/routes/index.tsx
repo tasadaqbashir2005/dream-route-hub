@@ -139,18 +139,19 @@ function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="glass grid grid-cols-2 gap-6 rounded-3xl p-8 shadow-2xl md:grid-cols-4">
             {[
-              { n: 5200, s: "+", label: "Happy Clients" },
-              { n: 98, s: "%", label: "Visa Success Rate" },
-              { n: 32, s: "+", label: "Countries Served" },
-              { n: 10, s: "+", label: "Years of Experience" },
+              { n: 257987, s: "+", label: "Happy Clients" },
+              { n: 99.9, s: "%", label: "Visa Success Rate", d: 1 },
+              { n: 52, s: "+", label: "Countries Served" },
+              { n: 15, s: "+", label: "Years of Experience" },
             ].map((it) => (
               <div key={it.label} className="text-center">
                 <div className="font-serif text-3xl font-bold text-[#0B2545] sm:text-4xl md:text-5xl">
-                  <Counter to={it.n} suffix={it.s} />
+                  <Counter to={it.n} suffix={it.s} decimals={it.d ?? 0} />
                 </div>
                 <div className="mt-2 text-xs uppercase tracking-widest text-slate-500 sm:text-sm">{it.label}</div>
               </div>
             ))}
+
           </div>
         </div>
       </section>
