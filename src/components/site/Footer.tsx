@@ -1,15 +1,27 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { BRAND_NAME, CONTACT_ADDRESS, CONTACT_EMAIL, WHATSAPP_DISPLAY, INSTAGRAM_URL, FACEBOOK_URL } from "@/lib/site-data";
-import logoRect from "@/assets/logo-rect.png.asset.json";
+import logoAsset from "@/assets/logo-v2.png.asset.json";
 
 export function Footer() {
   return (
     <footer className="mt-20 gradient-royal text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <Link to="/" className="inline-block overflow-hidden rounded-xl border border-[#D4AF37]/30 bg-[#0B2545] shadow-lg transition-transform hover:scale-[1.02]">
-            <img src={logoRect.url} alt={BRAND_NAME} className="h-16 w-auto sm:h-20" />
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src={logoAsset.url}
+              alt={`${BRAND_NAME} logo`}
+              className="h-14 w-14 shrink-0 rounded-full object-cover shadow-md ring-2 ring-[#D4AF37]/50 sm:h-16 sm:w-16"
+            />
+            <div className="min-w-0 leading-tight">
+              <div className="font-serif text-base font-bold text-white sm:text-lg">
+                {BRAND_NAME}
+              </div>
+              <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-[#D4AF37]">
+                Travel | Visa | Consultancy
+              </div>
+            </div>
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-white/70">
             Trusted visa consultants delivering premium international visa and Saudi Khidmat services with unmatched expertise and personal care.
