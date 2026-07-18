@@ -63,11 +63,11 @@ export function Footer() {
         <div>
           <h4 className="font-serif text-lg text-[#D4AF37]">Services</h4>
           <ul className="mt-4 space-y-2 text-sm text-white/80">
-            <li>Schengen Visit Visa</li>
-            <li>Study Visa</li>
-            <li>Umrah Visa</li>
-            <li>Saudi Khidmat Services</li>
-            <li>Airline Ticketing</li>
+            <li><Link to="/services/visit-visa" className="hover:text-[#D4AF37]">Visit Visa</Link></li>
+            <li><Link to="/services/study-visa" className="hover:text-[#D4AF37]">Study Visa</Link></li>
+            <li><Link to="/services/umrah" className="hover:text-[#D4AF37]">Umrah Visa</Link></li>
+            <li><Link to="/services/saudi-khidmat" className="hover:text-[#D4AF37]">Saudi Khidmat Services</Link></li>
+            <li><Link to="/services/airline-ticketing" className="hover:text-[#D4AF37]">Airline Ticketing</Link></li>
           </ul>
         </div>
 
