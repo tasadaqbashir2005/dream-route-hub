@@ -243,15 +243,6 @@ function ContactPage() {
                 </li>
               </ul>
             </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h4 className="font-serif text-lg font-bold text-[#0B2545]">What happens next?</h4>
-              <ol className="mt-4 space-y-3 text-sm text-slate-600">
-                <li className="flex gap-3"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full gradient-gold text-xs font-bold text-[#0B2545]">1</span> Submit the form — a branded PDF downloads to your device.</li>
-                <li className="flex gap-3"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full gradient-gold text-xs font-bold text-[#0B2545]">2</span> WhatsApp opens with a pre-filled introduction.</li>
-                <li className="flex gap-3"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full gradient-gold text-xs font-bold text-[#0B2545]">3</span> Attach the PDF & send. A consultant replies quickly.</li>
-              </ol>
-            </div>
           </div>
 
           {/* Right - form */}
@@ -260,8 +251,8 @@ function ContactPage() {
               <div className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
                 <div>
-                  <div className="font-semibold">Application ready — WhatsApp is opening!</div>
-                  <div className="mt-0.5 text-emerald-700/80">Your PDF summary has been saved to your device. Please attach it in the WhatsApp chat that just opened to complete your submission.</div>
+                  <div className="font-semibold">Message sent — WhatsApp is opening!</div>
+                  <div className="mt-0.5 text-emerald-700/80">Your details have been packaged into a branded PDF and sent to our WhatsApp with your phone number attached. Our consultant will reply shortly.</div>
                 </div>
               </div>
             )}
