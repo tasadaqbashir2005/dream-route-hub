@@ -11,6 +11,12 @@ import {
 } from "lucide-react";
 
 
+const cardImages = [
+  "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=70&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=70&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800&q=70&auto=format&fit=crop",
+];
+
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
@@ -19,9 +25,11 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: "Services — SHAHID PRIME SERVICES" },
       { property: "og:description", content: "Visit Visa, Study Visa, Umrah, Saudi Khidmat & Airline Ticketing." },
     ],
+    links: cardImages.map((href) => ({ rel: "preload", as: "image", href })),
   }),
   component: ServicesHub,
 });
+
 
 const cards = [
   {
@@ -29,42 +37,42 @@ const cards = [
     title: "Visit Visa",
     desc: "Schengen, UK, USA, Canada, Australia & global destinations — plus work permits.",
     icon: Plane,
-    image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800w=1400&q=80q=70w=1400&q=80auto=formatw=1400&q=80fit=crop",
+    image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=70&auto=format&fit=crop",
   },
   {
     to: "/services/study-visa" as const,
     title: "Study Visa",
     desc: "Top European universities and scholarship guidance for ambitious students.",
     icon: GraduationCap,
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800w=1400&q=80q=70w=1400&q=80auto=formatw=1400&q=80fit=crop",
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=70&auto=format&fit=crop",
   },
   {
     to: "/services/umrah" as const,
     title: "Umrah Visa",
     desc: "1-Month and 3-Month Umrah packages arranged with complete peace of mind.",
     icon: Moon,
-    image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800w=1400&q=80q=70w=1400&q=80auto=formatw=1400&q=80fit=crop",
+    image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800&q=70&auto=format&fit=crop",
   },
   {
     to: "/services/saudi-khidmat" as const,
     title: "Saudi Khidmat Services",
     desc: "Wakala, Naqal Kafala, Azad Visa, Amal Manzali & other in-country services.",
     icon: Building2,
-    image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=800w=1400&q=80q=70w=1400&q=80auto=formatw=1400&q=80fit=crop",
+    image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=800&q=70&auto=format&fit=crop",
   },
   {
     to: "/services/airline-ticketing" as const,
     title: "Airline Ticketing",
     desc: "Airline tickets for all major international and domestic airlines at highly competitive and discounted prices.",
     icon: Ticket,
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800w=1400&q=80q=70w=1400&q=80auto=formatw=1400&q=80fit=crop",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=70&auto=format&fit=crop",
   },
   {
     to: "/services/cr-provider" as const,
     title: "CR Provider",
     desc: "Commercial Registration (CR) in Saudi Arabia — we set up and grow your business end-to-end.",
     icon: FileText,
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800w=1400&q=80q=70w=1400&q=80auto=formatw=1400&q=80fit=crop",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=70&auto=format&fit=crop",
   },
 ];
 
@@ -99,16 +107,18 @@ function ServicesHub() {
                 to={c.to}
                 className="group relative flex w-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-[#D4AF37]/50 hover:shadow-2xl"
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                   <img
                     src={c.image}
                     alt={c.title}
-                    loading="lazy"
+                    loading={i < 3 ? "eager" : "lazy"}
+                    fetchPriority={i < 3 ? "high" : "auto"}
                     decoding="async"
                     width={800}
                     height={500}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/80 via-[#0B2545]/20 to-transparent" />
                   <div className="absolute left-5 top-5 grid h-12 w-12 place-items-center rounded-2xl gradient-gold text-[#0B2545] shadow-lg">
