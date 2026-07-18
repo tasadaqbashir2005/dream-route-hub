@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Award, HeartHandshake, ShieldCheck, Sparkles, Target, Users, ArrowRight, Compass } from "lucide-react";
+import aboutBanner from "@/assets/about-banner.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
