@@ -7,7 +7,9 @@ import {
   Moon,
   Building2,
   Ticket,
+  FileText,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -57,7 +59,15 @@ const cards = [
     icon: Ticket,
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1400&q=80",
   },
+  {
+    to: "/services/cr-provider" as const,
+    title: "CR Provider",
+    desc: "Commercial Registration (CR) in Saudi Arabia — we set up and grow your business end-to-end.",
+    icon: FileText,
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=80",
+  },
 ];
+
 
 function ServicesHub() {
   return (

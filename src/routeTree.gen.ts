@@ -20,6 +20,7 @@ import { Route as ServicesVisitVisaRouteImport } from './routes/services_.visit-
 import { Route as ServicesUmrahRouteImport } from './routes/services_.umrah'
 import { Route as ServicesStudyVisaRouteImport } from './routes/services_.study-visa'
 import { Route as ServicesSaudiKhidmatRouteImport } from './routes/services_.saudi-khidmat'
+import { Route as ServicesCrProviderRouteImport } from './routes/services_.cr-provider'
 import { Route as ServicesAirlineTicketingRouteImport } from './routes/services_.airline-ticketing'
 
 const TermsRoute = TermsRouteImport.update({
@@ -77,6 +78,11 @@ const ServicesSaudiKhidmatRoute = ServicesSaudiKhidmatRouteImport.update({
   path: '/services/saudi-khidmat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesCrProviderRoute = ServicesCrProviderRouteImport.update({
+  id: '/services_/cr-provider',
+  path: '/services/cr-provider',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesAirlineTicketingRoute =
   ServicesAirlineTicketingRouteImport.update({
     id: '/services_/airline-ticketing',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
+  '/services/cr-provider': typeof ServicesCrProviderRoute
   '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services/study-visa': typeof ServicesStudyVisaRoute
   '/services/umrah': typeof ServicesUmrahRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
+  '/services/cr-provider': typeof ServicesCrProviderRoute
   '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services/study-visa': typeof ServicesStudyVisaRoute
   '/services/umrah': typeof ServicesUmrahRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/services_/airline-ticketing': typeof ServicesAirlineTicketingRoute
+  '/services_/cr-provider': typeof ServicesCrProviderRoute
   '/services_/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services_/study-visa': typeof ServicesStudyVisaRoute
   '/services_/umrah': typeof ServicesUmrahRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/services/airline-ticketing'
+    | '/services/cr-provider'
     | '/services/saudi-khidmat'
     | '/services/study-visa'
     | '/services/umrah'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/services/airline-ticketing'
+    | '/services/cr-provider'
     | '/services/saudi-khidmat'
     | '/services/study-visa'
     | '/services/umrah'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/services_/airline-ticketing'
+    | '/services_/cr-provider'
     | '/services_/saudi-khidmat'
     | '/services_/study-visa'
     | '/services_/umrah'
@@ -181,6 +193,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   ServicesAirlineTicketingRoute: typeof ServicesAirlineTicketingRoute
+  ServicesCrProviderRoute: typeof ServicesCrProviderRoute
   ServicesSaudiKhidmatRoute: typeof ServicesSaudiKhidmatRoute
   ServicesStudyVisaRoute: typeof ServicesStudyVisaRoute
   ServicesUmrahRoute: typeof ServicesUmrahRoute
@@ -266,6 +279,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSaudiKhidmatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services_/cr-provider': {
+      id: '/services_/cr-provider'
+      path: '/services/cr-provider'
+      fullPath: '/services/cr-provider'
+      preLoaderRoute: typeof ServicesCrProviderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services_/airline-ticketing': {
       id: '/services_/airline-ticketing'
       path: '/services/airline-ticketing'
@@ -285,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   ServicesAirlineTicketingRoute: ServicesAirlineTicketingRoute,
+  ServicesCrProviderRoute: ServicesCrProviderRoute,
   ServicesSaudiKhidmatRoute: ServicesSaudiKhidmatRoute,
   ServicesStudyVisaRoute: ServicesStudyVisaRoute,
   ServicesUmrahRoute: ServicesUmrahRoute,
@@ -293,13 +314,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

@@ -68,6 +68,7 @@ export function Footer() {
             <li><Link to="/services/umrah" className="hover:text-[#D4AF37]">Umrah Visa</Link></li>
             <li><Link to="/services/saudi-khidmat" className="hover:text-[#D4AF37]">Saudi Khidmat Services</Link></li>
             <li><Link to="/services/airline-ticketing" className="hover:text-[#D4AF37]">Airline Ticketing</Link></li>
+            <li><Link to="/services/cr-provider" className="hover:text-[#D4AF37]">CR Provider</Link></li>
           </ul>
         </div>
 
