@@ -8,6 +8,7 @@ import {
   GraduationCap,
   Moon,
   Building2,
+  Ticket,
   ShieldCheck,
   FileText,
   BadgeCheck,
@@ -15,16 +16,33 @@ import {
   Quote,
 } from "lucide-react";
 import { waLink } from "@/lib/site-data";
+import bannerAsset from "@/assets/banner.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SHAHID PRIME SERVICES — Trusted Visa & Saudi Services" },
-      { name: "description", content: "Schengen, Study, Umrah visas and Saudi Khidmat services with a proven track record. Start your application today." },
+      { title: "SHAHID PRIME SERVICES — Visa, Umrah, Saudi Khidmat & Airline Tickets" },
+      { name: "description", content: "Trusted travel agency for Schengen, Study & Umrah visas, Saudi Khidmat (Wakala, Kafala, Azad Visa) and airline ticketing. 99.9% success • 15+ years • 52+ countries." },
+      { name: "keywords", content: "visa consultancy Pakistan, Schengen visa, Umrah visa, study visa Europe, Saudi Khidmat, Wakala, Kafala, Azad visa, airline tickets, SHAHID PRIME SERVICES" },
       { property: "og:title", content: "SHAHID PRIME SERVICES — Trusted Visa & Saudi Services" },
-      { property: "og:description", content: "Schengen, Study, Umrah visas and Saudi Khidmat services with a proven track record." },
-      { property: "og:image", content: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80" },
+      { property: "og:description", content: "Schengen, Study, Umrah visas, Saudi Khidmat & airline ticketing with a 99.9% success rate." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        name: "SHAHID PRIME SERVICES",
+        description: "International visa consultancy, Umrah packages, Saudi Khidmat services and airline ticketing.",
+        areaServed: "Worldwide",
+        address: { "@type": "PostalAddress", addressCountry: "PK", addressLocality: "Islamabad" },
+        telephone: "+923114811886",
+        email: "info@shahidprimeservices.com",
+      }),
+    }],
   }),
   component: HomePage,
 });
@@ -58,6 +76,7 @@ const services = [
   { icon: GraduationCap, title: "Study Visa", desc: "Europe universities — Hungary, Germany, France, Italy.", href: "/services/study-visa" as const },
   { icon: Moon, title: "Umrah Visa", desc: "1 & 3 month Umrah packages with full support.", href: "/services/umrah" as const },
   { icon: Building2, title: "Saudi Khidmat", desc: "Wakala, Kafala, Azad Visa, Amal Manzali & more.", href: "/services/saudi-khidmat" as const },
+  { icon: Ticket, title: "Airline Ticketing", desc: "International & domestic flights at discounted prices.", href: "/services/airline-ticketing" as const },
 ];
 
 
@@ -87,11 +106,11 @@ function HomePage() {
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img
-            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1900&q=80"
-            alt="World travel"
-            className="h-full w-full object-cover"
+            src={bannerAsset.url}
+            alt="SHAHID PRIME SERVICES — Your Journey, Our Priority"
+            className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B2545]/95 via-[#0B2545]/80 to-[#134074]/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0B2545]/85 via-[#0B2545]/60 to-[#0B2545]/40" />
         </div>
 
         <div className="mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pt-40">
@@ -168,7 +187,7 @@ function HomePage() {
               Four flagship service lines built on years of embassy-level expertise.
             </p>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {services.map((s, i) => (
               <motion.div
                 key={s.title}

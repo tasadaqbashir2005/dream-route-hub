@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { waLink, BRAND_NAME } from "@/lib/site-data";
+import logoAsset from "@/assets/logo.jpg.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -30,16 +31,18 @@ export function Navbar() {
     >
 
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div className="grid h-10 w-10 place-items-center rounded-full gradient-royal text-white shadow-md">
-            <span className="font-serif text-lg font-bold">S</span>
-          </div>
+        <Link to="/" className="flex items-center gap-3 shrink-0">
+          <img
+            src={logoAsset.url}
+            alt={`${BRAND_NAME} logo`}
+            className="h-11 w-11 rounded-full object-cover shadow-md ring-2 ring-[#D4AF37]/40 sm:h-12 sm:w-12"
+          />
           <div className="min-w-0 leading-tight">
             <div className="font-serif text-sm font-bold text-[#0B2545] sm:text-base">
               {BRAND_NAME}
             </div>
             <div className="text-[10px] uppercase tracking-widest text-slate-500">
-              Visa & Tours
+              Travel | Visa | Consultancy
             </div>
           </div>
         </Link>

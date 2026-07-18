@@ -17,7 +17,7 @@ export const Route = createFileRoute("/services_/saudi-khidmat")({
       eyebrow="Saudi Khidmat"
       title="Saudi Khidmat Services"
       description="Complete in-country services managed on your behalf — Wakala, Kafala, Azad Visa, Amal Manzali and more."
-      heroImage="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1600&q=80"
+      heroImage="https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=1600&q=80"
       icon={Building2}
       groups={[
         {
