@@ -18,31 +18,27 @@ export const Route = createFileRoute("/services_/umrah")({
 const plans = [
   {
     name: "1 Month Umrah",
-    price: "700",
-    unit: "SAR",
     features: [
       "1 Month multiple-entry visa",
       "Umrah eligibility guaranteed",
       "Ziyarat allowed in Makkah & Madinah",
       "Full documentation support",
-      "Fast processing (5–7 days)",
+      "Same day update",
     ],
-    service: "Umrah Visa — 1 Month (700 SAR)",
+    service: "Umrah Visa — 1 Month",
   },
   {
     name: "3 Month Umrah",
-    price: "1200",
-    unit: "SAR",
     featured: true,
     features: [
       "3 Month multiple-entry visa",
       "Extended stay for family Umrah",
       "Ziyarat & Rawdah access support",
       "Full documentation support",
-      "Priority processing",
+      "Same day update",
       "Free WhatsApp assistance",
     ],
-    service: "Umrah Visa — 3 Month (1200 SAR)",
+    service: "Umrah Visa — 3 Month",
   },
 ];
 
@@ -62,7 +58,7 @@ function UmrahPage() {
             <div className="grid h-14 w-14 place-items-center rounded-2xl gradient-gold text-[#0B2545] shadow-lg"><Moon className="h-6 w-6" /></div>
             <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Umrah Visa</p>
           </div>
-          <h1 className="mt-4 max-w-3xl font-serif text-4xl font-bold text-white sm:text-5xl md:text-6xl">Umrah Visa Packages</h1>
+          <h1 className="mt-4 max-w-3xl font-serif text-4xl font-bold text-white sm:text-5xl md:text-6xl">Umrah Visa</h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
             Blessed journeys, professionally arranged. Choose the package that fits your plans and let us handle the paperwork.
           </p>
@@ -87,10 +83,6 @@ function UmrahPage() {
               )}
               <div className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37]">Umrah Package</div>
               <h4 className={`mt-2 font-serif text-2xl font-bold ${p.featured ? "text-white" : "text-[#0B2545]"}`}>{p.name}</h4>
-              <div className="mt-5 flex items-baseline gap-1">
-                <span className={`font-serif text-5xl font-bold ${p.featured ? "text-[#D4AF37]" : "text-[#0B2545]"}`}>{p.price}</span>
-                <span className={`text-sm ${p.featured ? "text-white/70" : "text-slate-500"}`}>{p.unit}</span>
-              </div>
               <ul className={`mt-6 space-y-3 text-sm ${p.featured ? "text-white/85" : "text-slate-600"}`}>
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2">
