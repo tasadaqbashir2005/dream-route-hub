@@ -242,16 +242,7 @@ function ContactPage() {
                   </div>
                 </li>
               </ul>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h4 className="font-serif text-lg font-bold text-[#0B2545]">What happens next?</h4>
-              <ol className="mt-4 space-y-3 text-sm text-slate-600">
-                <li className="flex gap-3"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full gradient-gold text-xs font-bold text-[#0B2545]">1</span> Submit the form — a branded PDF downloads to your device.</li>
-                <li className="flex gap-3"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full gradient-gold text-xs font-bold text-[#0B2545]">2</span> WhatsApp opens with a pre-filled introduction.</li>
-                <li className="flex gap-3"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full gradient-gold text-xs font-bold text-[#0B2545]">3</span> Attach the PDF & send. A consultant replies quickly.</li>
-              </ol>
-            </div>
+          </div>
           </div>
 
           {/* Right - form */}
