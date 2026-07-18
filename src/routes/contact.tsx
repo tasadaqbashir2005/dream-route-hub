@@ -260,11 +260,12 @@ function ContactPage() {
               <div className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
                 <div>
-                  <div className="font-semibold">PDF downloaded & WhatsApp opened!</div>
-                  <div className="mt-0.5 text-emerald-700/80">Attach the downloaded PDF in WhatsApp to complete your application.</div>
+                  <div className="font-semibold">Application ready — WhatsApp is opening!</div>
+                  <div className="mt-0.5 text-emerald-700/80">Your PDF summary has been saved to your device. Please attach it in the WhatsApp chat that just opened to complete your submission.</div>
                 </div>
               </div>
             )}
+
 
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Full Name" error={errors.fullName}>
