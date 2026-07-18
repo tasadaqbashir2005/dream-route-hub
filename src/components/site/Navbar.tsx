@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { waLink, BRAND_NAME } from "@/lib/site-data";
+import { waLink, BRAND_NAME, WHATSAPP_NUMBER, WHATSAPP_DISPLAY } from "@/lib/site-data";
 import logoAsset from "@/assets/logo-v2.png.asset.json";
 
 const links = [
