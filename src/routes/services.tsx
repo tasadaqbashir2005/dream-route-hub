@@ -11,6 +11,12 @@ import {
 } from "lucide-react";
 
 
+const cardImages = [
+  "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=70&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=70&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800&q=70&auto=format&fit=crop",
+];
+
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
@@ -19,9 +25,11 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: "Services — SHAHID PRIME SERVICES" },
       { property: "og:description", content: "Visit Visa, Study Visa, Umrah, Saudi Khidmat & Airline Ticketing." },
     ],
+    links: cardImages.map((href) => ({ rel: "preload", as: "image", href })),
   }),
   component: ServicesHub,
 });
+
 
 const cards = [
   {
