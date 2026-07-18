@@ -193,16 +193,11 @@ function ContactPage() {
 
 
   return (
-    <div className="relative">
-      {/* Decorative page background */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] overflow-hidden">
-        <div className="absolute inset-0 gradient-royal" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.25),transparent_60%)]" />
-        <div className="absolute -bottom-1 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-slate-50" />
-      </div>
-
-      <section className="px-4 pt-36 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl text-center">
+    <div className="relative bg-slate-50">
+      <section className="relative overflow-hidden gradient-royal px-4 pt-36 pb-32 sm:px-6 lg:px-8">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.25),transparent_60%)]" />
+        <div aria-hidden className="pointer-events-none absolute -bottom-1 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-slate-50" />
+        <div className="relative mx-auto max-w-7xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-white/5 px-5 py-2 text-[11px] font-medium uppercase tracking-[0.3em] text-[#D4AF37] backdrop-blur">
             Get in Touch
           </span>
