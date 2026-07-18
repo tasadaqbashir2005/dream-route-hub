@@ -173,7 +173,6 @@ function ContactPage() {
         `*Name:* ${d.fullName}\n` +
         `*Phone:* ${d.phone}\n` +
         `*Country:* ${d.country}\n` +
-        `*Current Location:* ${d.location}\n` +
         `*Requested Service:* ${d.service}\n` +
         `*Message:* ${d.message?.trim() || "—"}\n\n` +
         `A branded PDF summary has been generated on the client's device and will be attached to this chat.`;
