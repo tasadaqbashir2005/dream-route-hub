@@ -161,7 +161,7 @@ function HomePage() {
             </div>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-              From Schengen and study visas to Umrah and Saudi Khidmat — we handle every step with white-glove precision, so you can travel with confidence.
+              From Global Visit visa and study visas to Umrah and Saudi Khidmat — we handle every step with white-glove precision, so you can travel with confidence.
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-4">
