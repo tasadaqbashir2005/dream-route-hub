@@ -114,8 +114,12 @@ function HomePage() {
           <img
             src={bannerAsset.url}
             alt="SHAHID PRIME SERVICES — Travel, Visa & Consultancy"
+            fetchPriority="high"
+            decoding="async"
+            loading="eager"
             className="h-full w-full object-cover object-center"
           />
+
           {/* Layered overlays for depth + legibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B2545]/85 via-[#0B2545]/70 to-[#0B2545]/95" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,175,55,0.25),transparent_55%)]" />
