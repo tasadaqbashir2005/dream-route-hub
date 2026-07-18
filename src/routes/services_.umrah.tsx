@@ -92,7 +92,7 @@ function UmrahPage() {
                   Most Popular
                 </span>
               )}
-              <div className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37]">Umrah Package</div>
+              <div className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37]">Umrah Visa</div>
               <h4 className={`mt-2 font-serif text-2xl font-bold ${p.featured ? "text-white" : "text-[#0B2545]"}`}>{p.name}</h4>
               <ul className={`mt-6 space-y-3 text-sm ${p.featured ? "text-white/85" : "text-slate-600"}`}>
                 {p.features.map((f) => (
