@@ -266,8 +266,12 @@ function ContactPage() {
           </div>
 
           {/* Right - form */}
-          <form onSubmit={onSubmit} noValidate className="relative rounded-3xl border border-[#D4AF37]/20 bg-white p-6 shadow-2xl sm:p-10">
-            <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-1 rounded-t-3xl gradient-gold" />
+          <form onSubmit={onSubmit} noValidate className="group relative overflow-hidden rounded-3xl border-2 border-[#D4AF37]/40 bg-gradient-to-br from-white via-white to-[#F8F5EC] p-6 shadow-[0_25px_60px_-15px_rgba(11,37,69,0.35)] ring-1 ring-white/60 backdrop-blur-xl sm:p-10">
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-[#D4AF37] via-[#F4D06F] to-[#D4AF37]" />
+            <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#D4AF37]/15 blur-3xl" />
+            <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#0B2545]/10 blur-3xl" />
+            <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.9),transparent_60%)]" />
+            <div className="relative">
             {done && (
               <div className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
