@@ -104,8 +104,12 @@ function ServicesHub() {
                     src={c.image}
                     alt={c.title}
                     loading="lazy"
+                    decoding="async"
+                    width={800}
+                    height={500}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/80 via-[#0B2545]/20 to-transparent" />
                   <div className="absolute left-5 top-5 grid h-12 w-12 place-items-center rounded-2xl gradient-gold text-[#0B2545] shadow-lg">
                     <c.icon className="h-5 w-5" />
