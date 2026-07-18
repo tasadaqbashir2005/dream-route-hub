@@ -218,7 +218,7 @@ function HomePage() {
       </section>
 
       {/* SERVICE PREVIEW */}
-      <section className="px-4 py-24 sm:px-6 lg:px-8">
+      <section className="cv-auto px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Our Services</p>
@@ -258,7 +258,7 @@ function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="bg-[#F8F9FA] px-4 py-24 sm:px-6 lg:px-8">
+      <section className="cv-auto bg-[#F8F9FA] px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">The Process</p>
@@ -290,7 +290,7 @@ function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="px-4 py-24 sm:px-6 lg:px-8">
+      <section className="cv-auto px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Testimonials</p>
@@ -339,7 +339,7 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="px-4 pb-24 sm:px-6 lg:px-8">
+      <section className="cv-auto px-4 pb-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] gradient-royal p-10 shadow-2xl sm:p-14">
           <div className="grid items-center gap-8 md:grid-cols-[1.5fr_auto]">
             <div>
