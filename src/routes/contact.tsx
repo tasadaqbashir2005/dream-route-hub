@@ -242,6 +242,7 @@ function ContactPage() {
                   </div>
                 </li>
               </ul>
+            </div>
           </div>
 
           {/* Right - form */}
