@@ -110,7 +110,7 @@ function UmrahPage() {
                   href={waLink(`Hello, I'd like details about: ${p.service}`)}
                   target="_blank"
                   rel="noreferrer"
-                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors ${p.featured ? "border border-white/30 text-white hover:bg-white/10" : "border border-[#0B2545]/15 text-[#0B2545] hover:bg-[#0B2545] hover:text-white"}`}
+                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors ${p.featured ? "border border-white/30 text-white hover:bg-[#25D366] hover:border-[#25D366]" : "border border-[#0B2545]/15 text-[#0B2545] hover:bg-[#25D366] hover:border-[#25D366] hover:text-white"}`}
                 >
                   <MessageCircle className="h-4 w-4" /> Contact on WhatsApp
                 </a>

@@ -66,7 +66,8 @@ export function Navbar() {
             href={waLink("Hello, I want to inquire about your services.")}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-2 rounded-full gradient-gold px-4 py-2.5 text-sm font-semibold text-[#0B2545] shadow-md transition-transform hover:scale-[1.03] sm:inline-flex"
+            className="hidden items-center gap-2 rounded-full gradient-gold px-4 py-2.5 text-sm font-semibold text-[#0B2545] shadow-md transition-all hover:scale-[1.03] hover:bg-[#25D366] hover:text-white sm:inline-flex"
+            style={{ backgroundImage: undefined }}
           >
             <MessageCircle className="h-4 w-4" />
             WhatsApp
