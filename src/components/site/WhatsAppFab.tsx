@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { WHATSAPP_NUMBER } from "@/lib/site-data";
-import waIcon from "@/assets/whatsapp.png.asset.json";
+import waIcon from "@/assets/whatsapp-v2.png.asset.json";
 
 const MESSAGE = "Hello SHAHID PRIME SERVICES, I have an inquiry.";
 
