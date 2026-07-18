@@ -58,7 +58,7 @@ function UmrahPage() {
             <div className="grid h-14 w-14 place-items-center rounded-2xl gradient-gold text-[#0B2545] shadow-lg"><Moon className="h-6 w-6" /></div>
             <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Umrah Visa</p>
           </div>
-          <h1 className="mt-4 max-w-3xl font-serif text-4xl font-bold text-white sm:text-5xl md:text-6xl">Umrah Visa Packages</h1>
+          <h1 className="mt-4 max-w-3xl font-serif text-4xl font-bold text-white sm:text-5xl md:text-6xl">Umrah Visa</h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
             Blessed journeys, professionally arranged. Choose the package that fits your plans and let us handle the paperwork.
           </p>
