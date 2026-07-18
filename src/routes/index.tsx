@@ -54,11 +54,12 @@ function Counter({ to, suffix = "", decimals = 0 }: { to: number; suffix?: strin
 
 
 const services = [
-  { icon: Plane, title: "Visit Visa", desc: "Schengen, UK, USA, Canada, Australia and more.", href: "/services" },
-  { icon: GraduationCap, title: "Study Visa", desc: "Europe universities — Hungary, Germany, France, Italy.", href: "/services" },
-  { icon: Moon, title: "Umrah Visa", desc: "1 & 3 month Umrah packages with full support.", href: "/services" },
-  { icon: Building2, title: "Saudi Khidmat", desc: "Wakala, Kafala, Azad Visa, Amal Manzali & more.", href: "/services" },
+  { icon: Plane, title: "Visit Visa", desc: "Schengen, UK, USA, Canada, Australia and more.", href: "/services/visit-visa" as const },
+  { icon: GraduationCap, title: "Study Visa", desc: "Europe universities — Hungary, Germany, France, Italy.", href: "/services/study-visa" as const },
+  { icon: Moon, title: "Umrah Visa", desc: "1 & 3 month Umrah packages with full support.", href: "/services/umrah" as const },
+  { icon: Building2, title: "Saudi Khidmat", desc: "Wakala, Kafala, Azad Visa, Amal Manzali & more.", href: "/services/saudi-khidmat" as const },
 ];
+
 
 const steps = [
   { icon: MessageCircle, title: "Consultation", desc: "Free WhatsApp consultation to understand your goals & eligibility." },
