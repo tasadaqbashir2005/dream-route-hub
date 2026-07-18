@@ -20,6 +20,17 @@ export const STUDY_COUNTRIES = [
 export const SAUDI_SERVICES = [
   "Wakala", "Agency Services", "Naqal Kafala", "Azad Visa", "Amal Manzali", "Saie Khas",
 ];
+export const AIRLINE_SERVICES = [
+  "International Flights",
+  "Domestic Flights",
+  "One Way Tickets",
+  "Round Trip Tickets",
+  "Group Bookings",
+  "Corporate Bookings",
+  "Umrah Packages",
+  "Holiday Packages",
+  "Last Minute Deals",
+];
 
 export const ALL_SERVICES: string[] = [
   ...SCHENGEN_COUNTRIES.map((c) => `Schengen Visit Visa — ${c}`),
@@ -29,4 +40,6 @@ export const ALL_SERVICES: string[] = [
   "Umrah Visa — 1 Month (700 SAR)",
   "Umrah Visa — 3 Month (1200 SAR)",
   ...SAUDI_SERVICES.map((s) => `Saudi Khidmat — ${s}`),
+  ...AIRLINE_SERVICES.map((s) => `Airline Ticketing — ${s}`),
 ];
+

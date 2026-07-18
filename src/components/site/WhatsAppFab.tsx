@@ -1,13 +1,29 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { waLink } from "@/lib/site-data";
+import { WHATSAPP_NUMBER } from "@/lib/site-data";
+
+const MESSAGE = "Hello SHAHID PRIME SERVICES, I have an inquiry.";
 
 export function WhatsAppFab() {
+  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MESSAGE)}`;
+
+  const openChat = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Use api.whatsapp.com on mobile for best cross-platform handoff
+    if (typeof window !== "undefined") {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+      if (isMobile) {
+        e.preventDefault();
+        window.location.href = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(MESSAGE)}`;
+      }
+    }
+  };
+
   return (
     <motion.a
-      href={waLink("Hello SHAHID PRIME SERVICES, I have an inquiry.")}
+      href={href}
+      onClick={openChat}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 0.6, type: "spring", stiffness: 220, damping: 18 }}
@@ -16,7 +32,6 @@ export function WhatsAppFab() {
       className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full text-white shadow-2xl sm:bottom-8 sm:right-8 sm:h-16 sm:w-16"
       style={{
         background: "linear-gradient(135deg, #25D366 0%, #128C7E 100%)",
-        boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.7)",
         animation: "pulse-green 2s infinite",
       }}
       aria-label="Chat on WhatsApp"

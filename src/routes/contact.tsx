@@ -25,12 +25,18 @@ export const Route = createFileRoute("/contact")({
 
 const formSchema = z.object({
   fullName: z.string().trim().min(2, "Please enter your full name").max(100),
-  phone: z.string().trim().min(7, "Enter a valid phone").max(20),
+  phone: z
+    .string()
+    .trim()
+    .min(7, "Enter a valid phone number")
+    .max(20)
+    .regex(/^[+\d][\d\s\-()]{6,19}$/, "Enter a valid phone number (digits, spaces, dashes only)"),
   country: z.string().trim().min(2, "Enter your country").max(60),
   location: z.string().trim().min(2, "Enter your current location").max(100),
   service: z.string().trim().min(2, "Select a service").max(120),
   message: z.string().trim().max(1000).optional().default(""),
 });
+
 
 type FormData = z.infer<typeof formSchema>;
 
@@ -150,6 +156,7 @@ function ContactPage() {
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (submitting) return; // prevent duplicate submissions
     const parsed = formSchema.safeParse(form);
     if (!parsed.success) {
       const errs: Partial<Record<keyof FormData, string>> = {};
@@ -163,13 +170,31 @@ function ContactPage() {
     setSubmitting(true);
     try {
       generatePDF(parsed.data);
-      const text = `Hello, I am ${parsed.data.fullName}. I am interested in ${parsed.data.service}. My location is ${parsed.data.location}. Please see my attached PDF application.`;
-      window.open(waLink(text), "_blank", "noopener,noreferrer");
+      const d = parsed.data;
+      const text =
+        `*NEW CLIENT APPLICATION — ${BRAND_NAME}*\n\n` +
+        `*Name:* ${d.fullName}\n` +
+        `*Phone:* ${d.phone}\n` +
+        `*Country:* ${d.country}\n` +
+        `*Current Location:* ${d.location}\n` +
+        `*Requested Service:* ${d.service}\n` +
+        `*Message:* ${d.message?.trim() || "—"}\n\n` +
+        `A branded PDF summary has been generated on the client's device and will be attached to this chat.`;
+      // Cross-platform WhatsApp handoff (mobile uses api.whatsapp.com deep link)
+      const isMobile = typeof window !== "undefined" && /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+      const url = isMobile
+        ? `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(text)}`
+        : waLink(text);
+      window.open(url, "_blank", "noopener,noreferrer");
       setDone(true);
+    } catch (err) {
+      console.error(err);
+      setErrors((prev) => ({ ...prev, message: "Something went wrong. Please try again or WhatsApp us directly." }));
     } finally {
       setSubmitting(false);
     }
   };
+
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="pt-32">
@@ -235,11 +260,12 @@ function ContactPage() {
               <div className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
                 <div>
-                  <div className="font-semibold">PDF downloaded & WhatsApp opened!</div>
-                  <div className="mt-0.5 text-emerald-700/80">Attach the downloaded PDF in WhatsApp to complete your application.</div>
+                  <div className="font-semibold">Application ready — WhatsApp is opening!</div>
+                  <div className="mt-0.5 text-emerald-700/80">Your PDF summary has been saved to your device. Please attach it in the WhatsApp chat that just opened to complete your submission.</div>
                 </div>
               </div>
             )}
+
 
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Full Name" error={errors.fullName}>
@@ -274,7 +300,8 @@ function ContactPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full gradient-royal px-6 py-4 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.01] disabled:opacity-70"
+              aria-busy={submitting}
+              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full gradient-royal px-6 py-4 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               {submitting ? "Preparing your application..." : "Generate PDF & Send on WhatsApp"}
@@ -282,6 +309,7 @@ function ContactPage() {
             <p className="mt-3 text-center text-xs text-slate-500">
               Your details are used only to prepare your application. We respect your privacy.
             </p>
+
           </form>
         </div>
       </section>

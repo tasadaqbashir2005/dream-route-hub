@@ -29,32 +29,37 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
+function Counter({ to, suffix = "", decimals = 0 }: { to: number; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
   const [n, setN] = useState(0);
   useEffect(() => {
     if (!inView) return;
-    const dur = 1400;
+    const dur = 1800;
     const start = performance.now();
     let raf = 0;
     const tick = (t: number) => {
       const p = Math.min(1, (t - start) / dur);
-      setN(Math.floor(to * (1 - Math.pow(1 - p, 3))));
+      setN(to * (1 - Math.pow(1 - p, 3)));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [inView, to]);
-  return <span ref={ref}>{n.toLocaleString()}{suffix}</span>;
+  const formatted = decimals > 0
+    ? n.toFixed(decimals)
+    : Math.floor(n).toLocaleString();
+  return <span ref={ref}>{formatted}{suffix}</span>;
 }
 
+
 const services = [
-  { icon: Plane, title: "Visit Visa", desc: "Schengen, UK, USA, Canada, Australia and more.", href: "/services" },
-  { icon: GraduationCap, title: "Study Visa", desc: "Europe universities — Hungary, Germany, France, Italy.", href: "/services" },
-  { icon: Moon, title: "Umrah Visa", desc: "1 & 3 month Umrah packages with full support.", href: "/services" },
-  { icon: Building2, title: "Saudi Khidmat", desc: "Wakala, Kafala, Azad Visa, Amal Manzali & more.", href: "/services" },
+  { icon: Plane, title: "Visit Visa", desc: "Schengen, UK, USA, Canada, Australia and more.", href: "/services/visit-visa" as const },
+  { icon: GraduationCap, title: "Study Visa", desc: "Europe universities — Hungary, Germany, France, Italy.", href: "/services/study-visa" as const },
+  { icon: Moon, title: "Umrah Visa", desc: "1 & 3 month Umrah packages with full support.", href: "/services/umrah" as const },
+  { icon: Building2, title: "Saudi Khidmat", desc: "Wakala, Kafala, Azad Visa, Amal Manzali & more.", href: "/services/saudi-khidmat" as const },
 ];
+
 
 const steps = [
   { icon: MessageCircle, title: "Consultation", desc: "Free WhatsApp consultation to understand your goals & eligibility." },
@@ -134,18 +139,19 @@ function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="glass grid grid-cols-2 gap-6 rounded-3xl p-8 shadow-2xl md:grid-cols-4">
             {[
-              { n: 5200, s: "+", label: "Happy Clients" },
-              { n: 98, s: "%", label: "Visa Success Rate" },
-              { n: 32, s: "+", label: "Countries Served" },
-              { n: 10, s: "+", label: "Years of Experience" },
+              { n: 257987, s: "+", label: "Happy Clients" },
+              { n: 99.9, s: "%", label: "Visa Success Rate", d: 1 },
+              { n: 52, s: "+", label: "Countries Served" },
+              { n: 15, s: "+", label: "Years of Experience" },
             ].map((it) => (
               <div key={it.label} className="text-center">
                 <div className="font-serif text-3xl font-bold text-[#0B2545] sm:text-4xl md:text-5xl">
-                  <Counter to={it.n} suffix={it.s} />
+                  <Counter to={it.n} suffix={it.s} decimals={it.d ?? 0} />
                 </div>
                 <div className="mt-2 text-xs uppercase tracking-widest text-slate-500 sm:text-sm">{it.label}</div>
               </div>
             ))}
+
           </div>
         </div>
       </section>

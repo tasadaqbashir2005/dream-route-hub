@@ -25,9 +25,10 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass shadow-lg" : "bg-transparent"
+        scrolled ? "glass shadow-lg" : "bg-white/85 backdrop-blur-md shadow-md"
       }`}
     >
+
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
           <div className="grid h-10 w-10 place-items-center rounded-full gradient-royal text-white shadow-md">
