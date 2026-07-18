@@ -1,5 +1,5 @@
 import { createFileRoute, useSearch } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import jsPDF from "jspdf";
