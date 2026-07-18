@@ -243,7 +243,6 @@ function ContactPage() {
                 </li>
               </ul>
           </div>
-          </div>
 
           {/* Right - form */}
           <form onSubmit={onSubmit} noValidate className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl sm:p-10">
@@ -251,8 +250,8 @@ function ContactPage() {
               <div className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
                 <div>
-                  <div className="font-semibold">Application ready — WhatsApp is opening!</div>
-                  <div className="mt-0.5 text-emerald-700/80">Your PDF summary has been saved to your device. Please attach it in the WhatsApp chat that just opened to complete your submission.</div>
+                  <div className="font-semibold">Message sent — WhatsApp is opening!</div>
+                  <div className="mt-0.5 text-emerald-700/80">Your details have been packaged into a branded PDF and sent to our WhatsApp with your phone number attached. Our consultant will reply shortly.</div>
                 </div>
               </div>
             )}
