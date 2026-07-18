@@ -63,11 +63,18 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
+            href={`tel:+${WHATSAPP_NUMBER}`}
+            className="hidden items-center gap-2 rounded-full border border-[#0B2545]/15 bg-white px-3.5 py-2.5 text-sm font-semibold text-[#0B2545] shadow-sm transition-all hover:scale-[1.03] hover:border-[#D4AF37] hover:text-[#0B2545] md:inline-flex"
+            aria-label={`Call ${WHATSAPP_DISPLAY}`}
+          >
+            <Phone className="h-4 w-4 text-[#D4AF37]" />
+            <span className="tracking-tight">{WHATSAPP_DISPLAY}</span>
+          </a>
+          <a
             href={waLink("Hello, I want to inquire about your services.")}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-2 rounded-full gradient-gold px-4 py-2.5 text-sm font-semibold text-[#0B2545] shadow-md transition-all hover:scale-[1.03] hover:bg-[#25D366] hover:text-white sm:inline-flex"
-            style={{ backgroundImage: undefined }}
+            className="hidden items-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-md ring-1 ring-[#25D366]/40 transition-all hover:scale-[1.03] hover:bg-[#1EBE57] hover:shadow-lg sm:inline-flex"
           >
             <MessageCircle className="h-4 w-4" />
             WhatsApp
