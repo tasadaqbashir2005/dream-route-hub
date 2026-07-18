@@ -11,6 +11,17 @@ export const Route = createFileRoute("/services_/study-visa")({
       { property: "og:title", content: "Study Visa — SHAHID PRIME" },
       { property: "og:description", content: "Accredited European universities with end-to-end application support." },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Study Visa Services",
+        description: "Study visa consulting for top European universities with scholarship guidance and full application support.",
+        provider: { "@type": "TravelAgency", name: "SHAHID PRIME SERVICES" },
+        areaServed: "Europe",
+      }),
+    }],
   }),
   component: () => (
     <SubServicePage

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+Sitemap: https://dream-route-hub.lovable.app/sitemap.xml

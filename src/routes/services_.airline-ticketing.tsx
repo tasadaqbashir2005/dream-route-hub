@@ -11,6 +11,17 @@ export const Route = createFileRoute("/services_/airline-ticketing")({
       { property: "og:title", content: "Airline Ticketing — SHAHID PRIME" },
       { property: "og:description", content: "Discounted international, domestic, group and corporate airline tickets." },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Airline Ticketing",
+        description: "International and domestic airline tickets at competitive, discounted prices.",
+        provider: { "@type": "TravelAgency", name: "SHAHID PRIME SERVICES" },
+        areaServed: "Worldwide",
+      }),
+    }],
   }),
   component: () => (
     <SubServicePage

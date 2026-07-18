@@ -88,7 +88,7 @@ function AboutPage() {
               <div className="grid h-14 w-14 place-items-center rounded-2xl gradient-gold text-[#0B2545]">
                 <it.icon className="h-6 w-6" />
               </div>
-              <h3 className="mt-6 font-serif text-2xl font-bold text-[#0B2545]">{it.title}</h3>
+              <h2 className="mt-6 font-serif text-2xl font-bold text-[#0B2545]">{it.title}</h2>
               <p className="mt-3 text-slate-600 leading-relaxed">{it.text}</p>
             </motion.div>
           ))}

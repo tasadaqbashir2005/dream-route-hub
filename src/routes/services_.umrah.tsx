@@ -11,6 +11,17 @@ export const Route = createFileRoute("/services_/umrah")({
       { property: "og:title", content: "Umrah Visa Packages — SHAHID PRIME" },
       { property: "og:description", content: "Blessed journeys, professionally arranged." },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Umrah Visa",
+        description: "Umrah visa packages with priority processing and documentation support.",
+        provider: { "@type": "TravelAgency", name: "SHAHID PRIME SERVICES" },
+        areaServed: "Saudi Arabia",
+      }),
+    }],
   }),
   component: UmrahPage,
 });

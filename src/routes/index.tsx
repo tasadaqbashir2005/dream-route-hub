@@ -21,10 +21,10 @@ import bannerAsset from "@/assets/banner.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SHAHID PRIME SERVICES — Visa, Umrah, Saudi Khidmat & Airline Tickets" },
+      { title: "SHAHID PRIME — Visa, Umrah, Saudi Khidmat & Airline Tickets" },
       { name: "description", content: "Trusted travel agency for Schengen, Study & Umrah visas, Saudi Khidmat (Wakala, Kafala, Azad Visa) and airline ticketing. 99.9% success • 15+ years • 52+ countries." },
       { name: "keywords", content: "visa consultancy Pakistan, Schengen visa, Umrah visa, study visa Europe, Saudi Khidmat, Wakala, Kafala, Azad visa, airline tickets, SHAHID PRIME SERVICES" },
-      { property: "og:title", content: "SHAHID PRIME SERVICES — Visa, Umrah, Saudi Khidmat & Airline Tickets" },
+      { property: "og:title", content: "SHAHID PRIME — Visa, Umrah, Saudi Khidmat & Airline Tickets" },
       { property: "og:description", content: "Trusted travel agency for Schengen, Study & Umrah visas, Saudi Khidmat (Wakala, Kafala, Azad Visa) and airline ticketing. 99.9% success • 15+ years • 52+ countries." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
