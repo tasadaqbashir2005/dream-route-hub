@@ -14,6 +14,7 @@ import {
   BadgeCheck,
   Star,
   Quote,
+  Briefcase,
 } from "lucide-react";
 import { waLink } from "@/lib/site-data";
 import bannerAsset from "@/assets/banner.jpg.asset.json";
