@@ -14,6 +14,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesVisitVisaRouteImport } from './routes/services_.visit-visa'
@@ -22,6 +23,7 @@ import { Route as ServicesStudyVisaRouteImport } from './routes/services_.study-
 import { Route as ServicesSaudiKhidmatRouteImport } from './routes/services_.saudi-khidmat'
 import { Route as ServicesCrProviderRouteImport } from './routes/services_.cr-provider'
 import { Route as ServicesAirlineTicketingRouteImport } from './routes/services_.airline-ticketing'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -46,6 +48,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -89,15 +96,22 @@ const ServicesAirlineTicketingRoute =
     path: '/services/airline-ticketing',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services/cr-provider': typeof ServicesCrProviderRoute
   '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
@@ -108,11 +122,13 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services/cr-provider': typeof ServicesCrProviderRoute
   '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
@@ -124,11 +140,13 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services_/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services_/cr-provider': typeof ServicesCrProviderRoute
   '/services_/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
@@ -141,11 +159,13 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/blog'
     | '/contact'
     | '/privacy'
     | '/services'
     | '/sitemap.xml'
     | '/terms'
+    | '/blog/$slug'
     | '/services/airline-ticketing'
     | '/services/cr-provider'
     | '/services/saudi-khidmat'
@@ -156,11 +176,13 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/blog'
     | '/contact'
     | '/privacy'
     | '/services'
     | '/sitemap.xml'
     | '/terms'
+    | '/blog/$slug'
     | '/services/airline-ticketing'
     | '/services/cr-provider'
     | '/services/saudi-khidmat'
@@ -171,11 +193,13 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/blog'
     | '/contact'
     | '/privacy'
     | '/services'
     | '/sitemap.xml'
     | '/terms'
+    | '/blog/$slug'
     | '/services_/airline-ticketing'
     | '/services_/cr-provider'
     | '/services_/saudi-khidmat'
@@ -187,6 +211,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
@@ -235,6 +260,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -293,12 +325,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAirlineTicketingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,

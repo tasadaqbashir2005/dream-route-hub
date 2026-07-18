@@ -66,7 +66,9 @@ export const Route = createFileRoute("/blog/$slug")({
           }),
         },
         ...(p.faqs && p.faqs.length
-          ? [
+          ? (() => {
+              const faqs = p.faqs;
+              return [
               {
                 type: "application/ld+json",
                 children: JSON.stringify({
