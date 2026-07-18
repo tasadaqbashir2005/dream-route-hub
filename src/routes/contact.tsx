@@ -262,10 +262,7 @@ function ContactPage() {
                 <input value={form.phone} onChange={(e) => update("phone", e.target.value)} placeholder="+92 300 0000000" className={inputCls} />
               </Field>
               <Field label="Country" error={errors.country}>
-                <input value={form.country} onChange={(e) => update("country", e.target.value)} placeholder="Pakistan" className={inputCls} />
-              </Field>
-              <Field label="Current Location" error={errors.location}>
-                <input value={form.location} onChange={(e) => update("location", e.target.value)} placeholder="Islamabad" className={inputCls} />
+                <input value={form.country} onChange={(e) => update("country", e.target.value)} placeholder="Saudi Arabia" className={inputCls} />
               </Field>
               <div className="sm:col-span-2">
                 <Field label="Select Service" error={errors.service}>
