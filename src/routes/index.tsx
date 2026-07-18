@@ -30,7 +30,10 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: bannerAsset.url, fetchpriority: "high" },
+    ],
     scripts: [{
       type: "application/ld+json",
       children: JSON.stringify({
@@ -111,8 +114,12 @@ function HomePage() {
           <img
             src={bannerAsset.url}
             alt="SHAHID PRIME SERVICES — Travel, Visa & Consultancy"
+            fetchPriority="high"
+            decoding="async"
+            loading="eager"
             className="h-full w-full object-cover object-center"
           />
+
           {/* Layered overlays for depth + legibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B2545]/85 via-[#0B2545]/70 to-[#0B2545]/95" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,175,55,0.25),transparent_55%)]" />
@@ -211,7 +218,7 @@ function HomePage() {
       </section>
 
       {/* SERVICE PREVIEW */}
-      <section className="px-4 py-24 sm:px-6 lg:px-8">
+      <section className="cv-auto px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Our Services</p>
@@ -251,7 +258,7 @@ function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="bg-[#F8F9FA] px-4 py-24 sm:px-6 lg:px-8">
+      <section className="cv-auto bg-[#F8F9FA] px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">The Process</p>
@@ -283,7 +290,7 @@ function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="px-4 py-24 sm:px-6 lg:px-8">
+      <section className="cv-auto px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Testimonials</p>
@@ -332,7 +339,7 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="px-4 pb-24 sm:px-6 lg:px-8">
+      <section className="cv-auto px-4 pb-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] gradient-royal p-10 shadow-2xl sm:p-14">
           <div className="grid items-center gap-8 md:grid-cols-[1.5fr_auto]">
             <div>

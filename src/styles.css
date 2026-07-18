@@ -103,3 +103,23 @@
 @utility gradient-gold {
   background: linear-gradient(135deg, #D4AF37 0%, #F4D06F 100%);
 }
+
+/* Perf: defer offscreen work on tall pages */
+@utility cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+/* Smoother scrolling + image rendering */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+img { image-rendering: -webkit-optimize-contrast; }
+
+/* Respect user's motion preferences for a smoother, less janky feel */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
