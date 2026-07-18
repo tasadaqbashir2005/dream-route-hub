@@ -102,7 +102,6 @@ function ContactPage() {
       ["Full Name", data.fullName],
       ["Phone Number", data.phone],
       ["Country", data.country],
-      ["Current Location", data.location],
       ["Requested Service", data.service],
     ];
 
