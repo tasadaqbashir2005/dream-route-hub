@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -19,6 +20,11 @@ import { Route as ServicesStudyVisaRouteImport } from './routes/services_.study-
 import { Route as ServicesSaudiKhidmatRouteImport } from './routes/services_.saudi-khidmat'
 import { Route as ServicesAirlineTicketingRouteImport } from './routes/services_.airline-ticketing'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services/study-visa': typeof ServicesStudyVisaRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services/study-visa': typeof ServicesStudyVisaRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services_/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services_/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services_/study-visa': typeof ServicesStudyVisaRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/services'
+    | '/sitemap.xml'
     | '/services/airline-ticketing'
     | '/services/saudi-khidmat'
     | '/services/study-visa'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/services'
+    | '/sitemap.xml'
     | '/services/airline-ticketing'
     | '/services/saudi-khidmat'
     | '/services/study-visa'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/services'
+    | '/sitemap.xml'
     | '/services_/airline-ticketing'
     | '/services_/saudi-khidmat'
     | '/services_/study-visa'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ServicesAirlineTicketingRoute: typeof ServicesAirlineTicketingRoute
   ServicesSaudiKhidmatRoute: typeof ServicesSaudiKhidmatRoute
   ServicesStudyVisaRoute: typeof ServicesStudyVisaRoute
@@ -150,6 +163,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ServicesAirlineTicketingRoute: ServicesAirlineTicketingRoute,
   ServicesSaudiKhidmatRoute: ServicesSaudiKhidmatRoute,
   ServicesStudyVisaRoute: ServicesStudyVisaRoute,
