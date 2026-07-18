@@ -117,11 +117,13 @@ function HomePage() {
             fetchPriority="high"
             decoding="async"
             loading="eager"
-            className="h-full w-full object-cover object-center"
+            width={1600}
+            height={900}
+            className="h-full w-full object-cover object-center opacity-70 sm:opacity-90"
           />
 
           {/* Layered overlays for depth + legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B2545]/85 via-[#0B2545]/70 to-[#0B2545]/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B2545]/90 via-[#0B2545]/75 to-[#0B2545]/95" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,175,55,0.25),transparent_55%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(212,175,55,0.15),transparent_60%)]" />
         </div>
@@ -129,7 +131,7 @@ function HomePage() {
         {/* Decorative gold rule */}
         <div className="pointer-events-none absolute inset-x-0 top-24 -z-10 mx-auto h-px max-w-5xl bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
 
-        <div className="mx-auto flex min-h-[92vh] max-w-7xl flex-col items-center justify-center px-4 pb-24 pt-36 text-center sm:px-6 lg:px-8 lg:pt-44">
+        <div className="mx-auto flex min-h-[85vh] max-w-7xl flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:min-h-[92vh] sm:px-6 sm:pb-24 sm:pt-36 lg:px-8 lg:pt-44">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,12 +142,12 @@ function HomePage() {
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.6 }}
-              className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-white/5 px-5 py-2 text-[11px] font-medium uppercase tracking-[0.3em] text-[#D4AF37] backdrop-blur"
+              className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-white/5 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.25em] text-[#D4AF37] backdrop-blur sm:px-5 sm:text-[11px] sm:tracking-[0.3em]"
             >
               <Star className="h-3.5 w-3.5 fill-[#D4AF37]" /> Trusted Since 2015
             </motion.span>
 
-            <h1 className="mt-8 font-serif text-4xl font-bold leading-[1.02] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="mt-6 font-serif text-3xl font-bold leading-[1.05] text-white sm:mt-8 sm:text-5xl md:text-6xl lg:text-7xl">
               Your Trusted Partner for
               <span className="mt-2 block bg-gradient-to-r from-[#F4D06F] via-[#D4AF37] to-[#F4D06F] bg-clip-text text-transparent">
                 International Visas
