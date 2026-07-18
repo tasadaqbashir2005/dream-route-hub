@@ -14,6 +14,7 @@ import {
   BadgeCheck,
   Star,
   Quote,
+  Briefcase,
 } from "lucide-react";
 import { waLink } from "@/lib/site-data";
 import bannerAsset from "@/assets/banner.jpg.asset.json";
@@ -77,6 +78,7 @@ const services = [
   { icon: Moon, title: "Umrah Visa", desc: "1 & 3 month Umrah packages with full support.", href: "/services/umrah" as const },
   { icon: Building2, title: "Saudi Khidmat", desc: "Wakala, Kafala, Azad Visa, Amal Manzali & more.", href: "/services/saudi-khidmat" as const },
   { icon: Ticket, title: "Airline Ticketing", desc: "International & domestic flights at discounted prices.", href: "/services/airline-ticketing" as const },
+  { icon: Briefcase, title: "CR Provider", desc: "Commercial Registration in Saudi Arabia — build your business.", href: "/services/cr-provider" as const },
 ];
 
 
