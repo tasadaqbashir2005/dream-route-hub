@@ -30,7 +30,7 @@ const plans = [
   {
     name: "1 Month Umrah",
     features: [
-      "1 Month multiple-entry visa",
+      "1 Month Visa",
       "Umrah eligibility guaranteed",
       "Ziyarat allowed in Makkah & Madinah",
       "Full documentation support",
@@ -42,7 +42,7 @@ const plans = [
     name: "3 Month Umrah",
     featured: true,
     features: [
-      "3 Month multiple-entry visa",
+      "3 Month Visa",
       "Extended stay for family Umrah",
       "Ziyarat & Rawdah access support",
       "Full documentation support",
