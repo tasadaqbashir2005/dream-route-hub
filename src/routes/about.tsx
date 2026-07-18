@@ -94,13 +94,6 @@ function AboutPage() {
           ))}
         </div>
       </section>
-      {/* placeholder-noop */}
-      <section className="hidden" aria-hidden="true">
-        {[].map((_, i) => (
-          <div key={i} />
-          ))}
-        </div>
-      </section>
 
       {/* Why Choose Us */}
       <section className="mt-24 bg-[#F8F9FA] px-4 py-20 sm:px-6 lg:px-8">
