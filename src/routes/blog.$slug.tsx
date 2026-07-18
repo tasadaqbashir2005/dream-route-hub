@@ -147,7 +147,7 @@ function BlogArticle() {
             <div className="mt-14">
               <h2 className="font-serif text-2xl font-bold text-[#0B2545]">Frequently Asked Questions</h2>
               <div className="mt-6 space-y-4">
-                {p.faqs.map((f) => (
+                {p.faqs.map((f: { q: string; a: string }) => (
                   <details key={f.q} className="group rounded-2xl border border-slate-200 bg-[#F8F9FA] p-5">
                     <summary className="cursor-pointer list-none font-semibold text-[#0B2545]">{f.q}</summary>
                     <p className="mt-3 text-sm text-slate-600">{f.a}</p>
