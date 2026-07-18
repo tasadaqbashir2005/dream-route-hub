@@ -3,7 +3,7 @@ import { Ticket } from "lucide-react";
 import { SubServicePage } from "@/components/site/SubServicePage";
 import { AIRLINE_SERVICES } from "@/lib/site-data";
 
-export const Route = createFileRoute("/services/airline-ticketing")({
+export const Route = createFileRoute("/services_/airline-ticketing")({
   head: () => ({
     meta: [
       { title: "Airline Ticketing — International & Domestic | SHAHID PRIME" },

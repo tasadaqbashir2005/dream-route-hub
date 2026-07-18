@@ -3,7 +3,7 @@ import { Building2 } from "lucide-react";
 import { SubServicePage } from "@/components/site/SubServicePage";
 import { SAUDI_SERVICES } from "@/lib/site-data";
 
-export const Route = createFileRoute("/services/saudi-khidmat")({
+export const Route = createFileRoute("/services_/saudi-khidmat")({
   head: () => ({
     meta: [
       { title: "Saudi Khidmat Services — Kafala, Wakala, Azad Visa | SHAHID PRIME" },

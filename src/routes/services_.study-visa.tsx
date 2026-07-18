@@ -3,7 +3,7 @@ import { GraduationCap } from "lucide-react";
 import { SubServicePage } from "@/components/site/SubServicePage";
 import { STUDY_COUNTRIES } from "@/lib/site-data";
 
-export const Route = createFileRoute("/services/study-visa")({
+export const Route = createFileRoute("/services_/study-visa")({
   head: () => ({
     meta: [
       { title: "Study Visa — European Universities | SHAHID PRIME" },

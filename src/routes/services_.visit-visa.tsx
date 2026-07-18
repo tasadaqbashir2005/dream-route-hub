@@ -3,7 +3,7 @@ import { Plane } from "lucide-react";
 import { SubServicePage } from "@/components/site/SubServicePage";
 import { SCHENGEN_COUNTRIES, GLOBAL_COUNTRIES, WORK_PERMIT_COUNTRIES } from "@/lib/site-data";
 
-export const Route = createFileRoute("/services/visit-visa")({
+export const Route = createFileRoute("/services_/visit-visa")({
   head: () => ({
     meta: [
       { title: "Visit Visa — Schengen, Global & Work Permits | SHAHID PRIME" },

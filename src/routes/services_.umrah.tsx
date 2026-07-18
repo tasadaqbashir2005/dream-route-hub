@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, MessageCircle, Moon } from "lucide-react";
 import { waLink } from "@/lib/site-data";
 
-export const Route = createFileRoute("/services/umrah")({
+export const Route = createFileRoute("/services_/umrah")({
   head: () => ({
     meta: [
       { title: "Umrah Visa — 1 & 3 Month Packages | SHAHID PRIME" },
