@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { BLOG_POSTS } from "@/lib/blog-data";
 
 const BASE_URL = "https://dream-route-hub.lovable.app";
 
@@ -12,6 +13,8 @@ const routes = [
   { path: "/services/saudi-khidmat", priority: "0.8", changefreq: "monthly" },
   { path: "/services/airline-ticketing", priority: "0.8", changefreq: "monthly" },
   { path: "/services/cr-provider", priority: "0.8", changefreq: "monthly" },
+  { path: "/blog", priority: "0.9", changefreq: "weekly" },
+  ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, priority: "0.7", changefreq: "monthly" })),
   { path: "/about", priority: "0.6", changefreq: "monthly" },
   { path: "/contact", priority: "0.7", changefreq: "monthly" },
 ];
