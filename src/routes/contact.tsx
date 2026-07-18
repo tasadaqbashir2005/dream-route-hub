@@ -25,6 +25,8 @@ export const Route = createFileRoute("/contact")({
 
 const formSchema = z.object({
   fullName: z.string().trim().min(2, "Please enter your full name").max(100),
+const formSchema = z.object({
+  fullName: z.string().trim().min(2, "Please enter your full name").max(100),
   phone: z
     .string()
     .trim()
@@ -32,6 +34,9 @@ const formSchema = z.object({
     .max(20)
     .regex(/^[+\d][\d\s\-()]{6,19}$/, "Enter a valid phone number (digits, spaces, dashes only)"),
   country: z.string().trim().min(2, "Enter your country").max(60),
+  service: z.string().trim().min(2, "Select a service").max(120),
+  message: z.string().trim().max(1000).optional().default(""),
+});
   location: z.string().trim().min(2, "Enter your current location").max(100),
   service: z.string().trim().min(2, "Select a service").max(120),
   message: z.string().trim().max(1000).optional().default(""),
