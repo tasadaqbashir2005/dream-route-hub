@@ -300,7 +300,8 @@ function ContactPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full gradient-royal px-6 py-4 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.01] disabled:opacity-70"
+              aria-busy={submitting}
+              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full gradient-royal px-6 py-4 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               {submitting ? "Preparing your application..." : "Generate PDF & Send on WhatsApp"}
@@ -308,6 +309,7 @@ function ContactPage() {
             <p className="mt-3 text-center text-xs text-slate-500">
               Your details are used only to prepare your application. We respect your privacy.
             </p>
+
           </form>
         </div>
       </section>
