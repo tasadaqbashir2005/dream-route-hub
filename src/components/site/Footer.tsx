@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
-import { BRAND_NAME, CONTACT_ADDRESS, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/site-data";
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { BRAND_NAME, CONTACT_ADDRESS, CONTACT_EMAIL, WHATSAPP_DISPLAY, INSTAGRAM_URL, FACEBOOK_URL } from "@/lib/site-data";
 
 export function Footer() {
   return (
