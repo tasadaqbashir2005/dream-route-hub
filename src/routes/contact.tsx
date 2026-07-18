@@ -322,8 +322,9 @@ function ContactPage() {
             <p className="mt-3 text-center text-xs text-slate-500">
               Your details are used only to prepare your application. We respect your privacy.
             </p>
-
+            </div>
           </form>
+
         </div>
       </section>
     </div>
