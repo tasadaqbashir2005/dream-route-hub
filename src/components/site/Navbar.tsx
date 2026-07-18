@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { waLink, BRAND_NAME } from "@/lib/site-data";
+import { waLink, BRAND_NAME, WHATSAPP_NUMBER, WHATSAPP_DISPLAY } from "@/lib/site-data";
 import logoAsset from "@/assets/logo-v2.png.asset.json";
 
 const links = [
@@ -63,11 +63,18 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
+            href={`tel:+${WHATSAPP_NUMBER}`}
+            className="hidden items-center gap-2 rounded-full border border-[#0B2545]/15 bg-white px-3.5 py-2.5 text-sm font-semibold text-[#0B2545] shadow-sm transition-all hover:scale-[1.03] hover:border-[#D4AF37] hover:text-[#0B2545] md:inline-flex"
+            aria-label={`Call ${WHATSAPP_DISPLAY}`}
+          >
+            <Phone className="h-4 w-4 text-[#D4AF37]" />
+            <span className="tracking-tight">{WHATSAPP_DISPLAY}</span>
+          </a>
+          <a
             href={waLink("Hello, I want to inquire about your services.")}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-2 rounded-full gradient-gold px-4 py-2.5 text-sm font-semibold text-[#0B2545] shadow-md transition-all hover:scale-[1.03] hover:bg-[#25D366] hover:text-white sm:inline-flex"
-            style={{ backgroundImage: undefined }}
+            className="hidden items-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-md ring-1 ring-[#25D366]/40 transition-all hover:scale-[1.03] hover:bg-[#1EBE57] hover:shadow-lg sm:inline-flex"
           >
             <MessageCircle className="h-4 w-4" />
             WhatsApp
@@ -104,10 +111,17 @@ export function Navbar() {
                 </Link>
               ))}
               <a
+                href={`tel:+${WHATSAPP_NUMBER}`}
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full border border-[#0B2545]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#0B2545]"
+              >
+                <Phone className="h-4 w-4 text-[#D4AF37]" />
+                {WHATSAPP_DISPLAY}
+              </a>
+              <a
                 href={waLink("Hello, I want to inquire about your services.")}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full gradient-gold px-4 py-2.5 text-sm font-semibold text-[#0B2545]"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow hover:bg-[#1EBE57]"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Us
