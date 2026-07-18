@@ -193,14 +193,29 @@ function ContactPage() {
 
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="pt-32">
-      <section className="px-4 sm:px-6 lg:px-8">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="relative">
+      {/* Decorative page background */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] overflow-hidden">
+        <div className="absolute inset-0 gradient-royal" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.25),transparent_60%)]" />
+        <div className="absolute -bottom-1 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-slate-50" />
+      </div>
+
+      <section className="px-4 pt-36 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Get in Touch</p>
-          <h1 className="mt-3 font-serif text-4xl font-bold text-[#0B2545] sm:text-5xl md:text-6xl">
-            Let's plan your next journey
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-white/5 px-5 py-2 text-[11px] font-medium uppercase tracking-[0.3em] text-[#D4AF37] backdrop-blur">
+            Get in Touch
+          </span>
+          <h1 className="mt-6 font-serif text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+            Let's plan your{" "}
+            <span className="bg-gradient-to-r from-[#F4D06F] via-[#D4AF37] to-[#F4D06F] bg-clip-text text-transparent">next journey</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-500">
+          <div className="mx-auto mt-6 flex items-center justify-center gap-3">
+            <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#D4AF37]" />
+            <span className="h-1.5 w-1.5 rotate-45 bg-[#D4AF37]" />
+            <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#D4AF37]" />
+          </div>
+          <p className="mx-auto mt-5 max-w-2xl text-white/75">
             Fill the form to auto-generate your application PDF and start a WhatsApp conversation with our consultants instantly.
           </p>
         </div>
@@ -210,39 +225,54 @@ function ContactPage() {
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.4fr]">
           {/* Left - contact info */}
           <div className="space-y-4">
-            <div className="relative overflow-hidden rounded-3xl gradient-royal p-8 text-white shadow-xl">
-              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#D4AF37]/20 blur-3xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/20 gradient-royal p-8 text-white shadow-2xl">
+              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#D4AF37]/25 blur-3xl" />
+              <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-[#D4AF37]/10 blur-3xl" />
               <h3 className="font-serif text-2xl font-bold">Contact Details</h3>
-              <p className="mt-2 text-sm text-white/70">Reach us any time. We reply on WhatsApp within minutes.</p>
+              <div className="mt-3 flex items-center gap-2">
+                <span className="h-px w-10 bg-[#D4AF37]" />
+                <span className="h-1 w-1 rotate-45 bg-[#D4AF37]" />
+              </div>
+              <p className="mt-4 text-sm text-white/70">Reach us any time. We reply on WhatsApp within minutes.</p>
 
               <ul className="mt-8 space-y-5 text-sm">
                 <li className="flex items-start gap-4">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-gold text-[#0B2545]"><Phone className="h-4 w-4" /></div>
-                  <div>
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-gold text-[#0B2545] shadow-md"><Phone className="h-4 w-4" /></div>
+                  <div className="min-w-0">
                     <div className="text-xs uppercase tracking-widest text-[#D4AF37]">Phone / WhatsApp</div>
-                    <a href={`tel:+${WHATSAPP_NUMBER}`} className="mt-0.5 block font-semibold">{WHATSAPP_DISPLAY}</a>
+                    <a href={`tel:+${WHATSAPP_NUMBER}`} className="mt-0.5 block font-semibold hover:text-[#D4AF37] transition-colors">{WHATSAPP_DISPLAY}</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-gold text-[#0B2545]"><Mail className="h-4 w-4" /></div>
-                  <div>
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-gold text-[#0B2545] shadow-md"><Mail className="h-4 w-4" /></div>
+                  <div className="min-w-0">
                     <div className="text-xs uppercase tracking-widest text-[#D4AF37]">Email</div>
-                    <a href={`mailto:${CONTACT_EMAIL}`} className="mt-0.5 block font-semibold break-all">{CONTACT_EMAIL}</a>
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="mt-0.5 block break-all font-semibold hover:text-[#D4AF37] transition-colors">{CONTACT_EMAIL}</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-gold text-[#0B2545]"><MapPin className="h-4 w-4" /></div>
-                  <div>
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-gold text-[#0B2545] shadow-md"><MapPin className="h-4 w-4" /></div>
+                  <div className="min-w-0">
                     <div className="text-xs uppercase tracking-widest text-[#D4AF37]">Office</div>
                     <div className="mt-0.5 font-semibold">{CONTACT_ADDRESS}</div>
                   </div>
                 </li>
               </ul>
+
+              <a
+                href={waLink("Hello SHAHID PRIME SERVICES, I'd like a free consultation.")}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition-all hover:border-[#25D366] hover:bg-[#25D366]"
+              >
+                <Phone className="h-4 w-4" /> Chat on WhatsApp
+              </a>
             </div>
           </div>
 
           {/* Right - form */}
-          <form onSubmit={onSubmit} noValidate className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl sm:p-10">
+          <form onSubmit={onSubmit} noValidate className="relative rounded-3xl border border-[#D4AF37]/20 bg-white p-6 shadow-2xl sm:p-10">
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-1 rounded-t-3xl gradient-gold" />
             {done && (
               <div className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />

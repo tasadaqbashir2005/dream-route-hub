@@ -16,7 +16,7 @@ import {
   Quote,
 } from "lucide-react";
 import { waLink } from "@/lib/site-data";
-import logoAsset from "@/assets/logo-v2.png.asset.json";
+import bannerAsset from "@/assets/banner.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -103,36 +103,62 @@ function HomePage() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden gradient-royal">
+      <section className="relative isolate overflow-hidden">
+        {/* Banner background with the integrated brand mark */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute -left-24 -top-24 h-96 w-96 rounded-full bg-[#D4AF37]/20 blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl" />
+          <img
+            src={bannerAsset.url}
+            alt="SHAHID PRIME SERVICES — Travel, Visa & Consultancy"
+            className="h-full w-full object-cover object-center"
+          />
+          {/* Layered overlays for depth + legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B2545]/85 via-[#0B2545]/70 to-[#0B2545]/95" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,175,55,0.25),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(212,175,55,0.15),transparent_60%)]" />
         </div>
 
-        <div className="mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-16 pt-32 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:pt-40">
+        {/* Decorative gold rule */}
+        <div className="pointer-events-none absolute inset-x-0 top-24 -z-10 mx-auto h-px max-w-5xl bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
+
+        <div className="mx-auto flex min-h-[92vh] max-w-7xl flex-col items-center justify-center px-4 pb-24 pt-36 text-center sm:px-6 lg:px-8 lg:pt-44">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="order-2 text-center lg:order-1 lg:text-left"
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-[#D4AF37] backdrop-blur">
+            <motion.span
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
+              className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-white/5 px-5 py-2 text-[11px] font-medium uppercase tracking-[0.3em] text-[#D4AF37] backdrop-blur"
+            >
               <Star className="h-3.5 w-3.5 fill-[#D4AF37]" /> Trusted Since 2015
-            </span>
-            <h1 className="mt-6 font-serif text-4xl font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Your Trusted Partner for{" "}
-              <span className="bg-gradient-to-r from-[#D4AF37] to-[#F4D06F] bg-clip-text text-transparent">
+            </motion.span>
+
+            <h1 className="mt-8 font-serif text-4xl font-bold leading-[1.02] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              Your Trusted Partner for
+              <span className="mt-2 block bg-gradient-to-r from-[#F4D06F] via-[#D4AF37] to-[#F4D06F] bg-clip-text text-transparent">
                 International Visas
-              </span>{" "}
-              & Saudi Services
+              </span>
+              <span className="mt-2 block text-white/95">&amp; Saudi Services</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg lg:mx-0">
+
+            {/* Gold underline flourish */}
+            <div className="mx-auto mt-8 flex items-center justify-center gap-3">
+              <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#D4AF37]" />
+              <span className="h-1.5 w-1.5 rotate-45 bg-[#D4AF37]" />
+              <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4AF37]" />
+            </div>
+
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
               From Schengen and study visas to Umrah and Saudi Khidmat — we handle every step with white-glove precision, so you can travel with confidence.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
+
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link
                 to="/services"
-                className="group inline-flex items-center gap-2 rounded-full gradient-gold px-7 py-4 text-sm font-semibold text-[#0B2545] shadow-xl transition-transform hover:scale-[1.03]"
+                className="group inline-flex items-center gap-2 rounded-full gradient-gold px-8 py-4 text-sm font-semibold text-[#0B2545] shadow-[0_10px_40px_-10px_rgba(212,175,55,0.7)] transition-all hover:scale-[1.04] hover:shadow-[0_15px_50px_-10px_rgba(212,175,55,0.9)]"
               >
                 Apply Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
@@ -140,30 +166,24 @@ function HomePage() {
                 href={waLink("Hello, I'd like to inquire about your visa services.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-[#25D366] hover:border-[#25D366]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-all hover:border-[#25D366] hover:bg-[#25D366]"
               >
                 <MessageCircle className="h-4 w-4" /> WhatsApp Us
               </a>
             </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="order-1 flex justify-center lg:order-2 lg:justify-end"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-transparent blur-3xl" />
-              <img
-                src={logoAsset.url}
-                alt="SHAHID PRIME SERVICES — Travel | Visa | Consultancy"
-                className="mx-auto h-56 w-56 rounded-full object-contain shadow-2xl ring-4 ring-[#D4AF37]/50 sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-[420px] lg:w-[420px]"
-              />
+            {/* Trust bar */}
+            <div className="mx-auto mt-14 flex max-w-2xl flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-widest text-white/60">
+              <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[#D4AF37]" /> 99.9% Success</span>
+              <span className="hidden h-1 w-1 rounded-full bg-[#D4AF37]/60 sm:block" />
+              <span className="flex items-center gap-2"><BadgeCheck className="h-4 w-4 text-[#D4AF37]" /> 52+ Countries</span>
+              <span className="hidden h-1 w-1 rounded-full bg-[#D4AF37]/60 sm:block" />
+              <span className="flex items-center gap-2"><Star className="h-4 w-4 fill-[#D4AF37] text-[#D4AF37]" /> 15+ Years</span>
             </div>
           </motion.div>
         </div>
       </section>
+
 
 
       {/* STATS */}
