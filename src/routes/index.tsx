@@ -16,7 +16,7 @@ import {
   Quote,
 } from "lucide-react";
 import { waLink } from "@/lib/site-data";
-import logoAsset from "@/assets/logo-v2.png.asset.json";
+import bannerAsset from "@/assets/banner.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
