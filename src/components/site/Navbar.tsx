@@ -8,6 +8,7 @@ import logoAsset from "@/assets/logo-v2.png.asset.json";
 const links = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
