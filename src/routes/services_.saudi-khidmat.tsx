@@ -11,6 +11,17 @@ export const Route = createFileRoute("/services_/saudi-khidmat")({
       { property: "og:title", content: "Saudi Khidmat Services — SHAHID PRIME" },
       { property: "og:description", content: "In-country Saudi services handled end-to-end." },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Saudi Khidmat Services",
+        description: "In-country Saudi services — Wakala, Naqal Kafala, Azad Visa, Amal Manzali and more.",
+        provider: { "@type": "TravelAgency", name: "SHAHID PRIME SERVICES" },
+        areaServed: "Saudi Arabia",
+      }),
+    }],
   }),
   component: () => (
     <SubServicePage

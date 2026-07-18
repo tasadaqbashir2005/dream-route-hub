@@ -11,6 +11,17 @@ export const Route = createFileRoute("/services_/visit-visa")({
       { property: "og:title", content: "Visit Visa Services — SHAHID PRIME" },
       { property: "og:description", content: "Schengen, global destinations and work permit programs." },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Visit Visa Services",
+        description: "Schengen, global visit visas and work permits with high approval rates.",
+        provider: { "@type": "TravelAgency", name: "SHAHID PRIME SERVICES" },
+        areaServed: "Worldwide",
+      }),
+    }],
   }),
   component: () => (
     <SubServicePage
