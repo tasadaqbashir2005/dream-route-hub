@@ -216,7 +216,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="mt-14 px-4 pb-24 sm:px-6 lg:px-8">
+      <section className="relative z-10 -mt-24 px-4 pb-24 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.4fr]">
           {/* Left - contact info */}
           <div className="space-y-4">
