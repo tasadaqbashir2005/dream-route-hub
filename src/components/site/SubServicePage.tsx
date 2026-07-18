@@ -103,7 +103,7 @@ export function SubServicePage({
                         href={waLink(`Hello, I'd like to inquire about: ${it.service}`)}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-full border border-[#0B2545]/15 bg-white px-4 py-2.5 text-xs font-semibold text-[#0B2545] transition-colors hover:bg-[#0B2545] hover:text-white"
+                        className="inline-flex items-center justify-center gap-2 rounded-full border border-[#0B2545]/15 bg-white px-4 py-2.5 text-xs font-semibold text-[#0B2545] transition-colors hover:border-[#25D366] hover:bg-[#25D366] hover:text-white"
                       >
                         <MessageCircle className="h-3.5 w-3.5" /> Contact
                       </a>

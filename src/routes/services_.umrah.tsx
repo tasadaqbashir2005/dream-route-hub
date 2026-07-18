@@ -51,7 +51,7 @@ function UmrahPage() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="pt-24">
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?w=1600&q=80" alt="Umrah" className="h-full w-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1600&q=80" alt="Makkah — Umrah packages" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-br from-[#0B2545]/95 via-[#0B2545]/85 to-[#134074]/70" />
         </div>
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
@@ -110,7 +110,7 @@ function UmrahPage() {
                   href={waLink(`Hello, I'd like details about: ${p.service}`)}
                   target="_blank"
                   rel="noreferrer"
-                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors ${p.featured ? "border border-white/30 text-white hover:bg-white/10" : "border border-[#0B2545]/15 text-[#0B2545] hover:bg-[#0B2545] hover:text-white"}`}
+                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors ${p.featured ? "border border-white/30 text-white hover:bg-[#25D366] hover:border-[#25D366]" : "border border-[#0B2545]/15 text-[#0B2545] hover:bg-[#25D366] hover:border-[#25D366] hover:text-white"}`}
                 >
                   <MessageCircle className="h-4 w-4" /> Contact on WhatsApp
                 </a>

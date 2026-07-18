@@ -17,7 +17,7 @@ export const Route = createFileRoute("/services_/study-visa")({
       eyebrow="Study Visa"
       title="Study Visa Destinations"
       description="Accredited universities across Europe with scholarship guidance, admission support and complete visa documentation."
-      heroImage="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80"
+      heroImage="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&q=80"
       icon={GraduationCap}
       groups={[
         {
