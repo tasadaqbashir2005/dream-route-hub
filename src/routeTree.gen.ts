@@ -13,6 +13,11 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesVisitVisaRouteImport } from './routes/services.visit-visa'
+import { Route as ServicesUmrahRouteImport } from './routes/services.umrah'
+import { Route as ServicesStudyVisaRouteImport } from './routes/services.study-visa'
+import { Route as ServicesSaudiKhidmatRouteImport } from './routes/services.saudi-khidmat'
+import { Route as ServicesAirlineTicketingRouteImport } from './routes/services.airline-ticketing'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -34,39 +39,108 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesVisitVisaRoute = ServicesVisitVisaRouteImport.update({
+  id: '/visit-visa',
+  path: '/visit-visa',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesUmrahRoute = ServicesUmrahRouteImport.update({
+  id: '/umrah',
+  path: '/umrah',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesStudyVisaRoute = ServicesStudyVisaRouteImport.update({
+  id: '/study-visa',
+  path: '/study-visa',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesSaudiKhidmatRoute = ServicesSaudiKhidmatRouteImport.update({
+  id: '/saudi-khidmat',
+  path: '/saudi-khidmat',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesAirlineTicketingRoute =
+  ServicesAirlineTicketingRouteImport.update({
+    id: '/airline-ticketing',
+    path: '/airline-ticketing',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
+  '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
+  '/services/study-visa': typeof ServicesStudyVisaRoute
+  '/services/umrah': typeof ServicesUmrahRoute
+  '/services/visit-visa': typeof ServicesVisitVisaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
+  '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
+  '/services/study-visa': typeof ServicesStudyVisaRoute
+  '/services/umrah': typeof ServicesUmrahRoute
+  '/services/visit-visa': typeof ServicesVisitVisaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
+  '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
+  '/services/study-visa': typeof ServicesStudyVisaRoute
+  '/services/umrah': typeof ServicesUmrahRoute
+  '/services/visit-visa': typeof ServicesVisitVisaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/services/airline-ticketing'
+    | '/services/saudi-khidmat'
+    | '/services/study-visa'
+    | '/services/umrah'
+    | '/services/visit-visa'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/services'
-  id: '__root__' | '/' | '/about' | '/contact' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/services/airline-ticketing'
+    | '/services/saudi-khidmat'
+    | '/services/study-visa'
+    | '/services/umrah'
+    | '/services/visit-visa'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/services/airline-ticketing'
+    | '/services/saudi-khidmat'
+    | '/services/study-visa'
+    | '/services/umrah'
+    | '/services/visit-visa'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -99,14 +173,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/visit-visa': {
+      id: '/services/visit-visa'
+      path: '/visit-visa'
+      fullPath: '/services/visit-visa'
+      preLoaderRoute: typeof ServicesVisitVisaRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/umrah': {
+      id: '/services/umrah'
+      path: '/umrah'
+      fullPath: '/services/umrah'
+      preLoaderRoute: typeof ServicesUmrahRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/study-visa': {
+      id: '/services/study-visa'
+      path: '/study-visa'
+      fullPath: '/services/study-visa'
+      preLoaderRoute: typeof ServicesStudyVisaRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/saudi-khidmat': {
+      id: '/services/saudi-khidmat'
+      path: '/saudi-khidmat'
+      fullPath: '/services/saudi-khidmat'
+      preLoaderRoute: typeof ServicesSaudiKhidmatRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/airline-ticketing': {
+      id: '/services/airline-ticketing'
+      path: '/airline-ticketing'
+      fullPath: '/services/airline-ticketing'
+      preLoaderRoute: typeof ServicesAirlineTicketingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
+
+interface ServicesRouteChildren {
+  ServicesAirlineTicketingRoute: typeof ServicesAirlineTicketingRoute
+  ServicesSaudiKhidmatRoute: typeof ServicesSaudiKhidmatRoute
+  ServicesStudyVisaRoute: typeof ServicesStudyVisaRoute
+  ServicesUmrahRoute: typeof ServicesUmrahRoute
+  ServicesVisitVisaRoute: typeof ServicesVisitVisaRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAirlineTicketingRoute: ServicesAirlineTicketingRoute,
+  ServicesSaudiKhidmatRoute: ServicesSaudiKhidmatRoute,
+  ServicesStudyVisaRoute: ServicesStudyVisaRoute,
+  ServicesUmrahRoute: ServicesUmrahRoute,
+  ServicesVisitVisaRoute: ServicesVisitVisaRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
