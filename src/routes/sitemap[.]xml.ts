@@ -11,6 +11,7 @@ const routes = [
   { path: "/services/umrah", priority: "0.8", changefreq: "monthly" },
   { path: "/services/saudi-khidmat", priority: "0.8", changefreq: "monthly" },
   { path: "/services/airline-ticketing", priority: "0.8", changefreq: "monthly" },
+  { path: "/services/cr-provider", priority: "0.8", changefreq: "monthly" },
   { path: "/about", priority: "0.6", changefreq: "monthly" },
   { path: "/contact", priority: "0.7", changefreq: "monthly" },
 ];
