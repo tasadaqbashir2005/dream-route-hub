@@ -18,31 +18,27 @@ export const Route = createFileRoute("/services_/umrah")({
 const plans = [
   {
     name: "1 Month Umrah",
-    price: "700",
-    unit: "SAR",
     features: [
       "1 Month multiple-entry visa",
       "Umrah eligibility guaranteed",
       "Ziyarat allowed in Makkah & Madinah",
       "Full documentation support",
-      "Fast processing (5–7 days)",
+      "Same day update",
     ],
-    service: "Umrah Visa — 1 Month (700 SAR)",
+    service: "Umrah Visa — 1 Month",
   },
   {
     name: "3 Month Umrah",
-    price: "1200",
-    unit: "SAR",
     featured: true,
     features: [
       "3 Month multiple-entry visa",
       "Extended stay for family Umrah",
       "Ziyarat & Rawdah access support",
       "Full documentation support",
-      "Priority processing",
+      "Same day update",
       "Free WhatsApp assistance",
     ],
-    service: "Umrah Visa — 3 Month (1200 SAR)",
+    service: "Umrah Visa — 3 Month",
   },
 ];
 
