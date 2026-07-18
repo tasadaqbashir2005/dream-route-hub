@@ -58,7 +58,7 @@ function UmrahPage() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="pt-24">
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1600&q=80" alt="Makkah — Umrah packages" className="h-full w-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1600&q=75&auto=format&fit=crop" alt="Makkah — Umrah packages" loading="lazy" decoding="async" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-br from-[#0B2545]/95 via-[#0B2545]/85 to-[#134074]/70" />
         </div>
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-28">

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Award, HeartHandshake, ShieldCheck, Sparkles, Target, Users, ArrowRight, Compass } from "lucide-react";
+import aboutBanner from "@/assets/about-banner.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -56,8 +57,10 @@ function AboutPage() {
             <div className="absolute -inset-4 -z-10 rounded-[2.5rem] gradient-gold opacity-20 blur-2xl" />
             <div className="overflow-hidden rounded-[2rem] border border-white/40 shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&q=80"
-                alt="Our team consulting a client"
+                src={aboutBanner.url}
+                alt="SHAHID PRIME SERVICES — travel, visa & consultancy"
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </div>
