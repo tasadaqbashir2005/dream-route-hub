@@ -107,16 +107,18 @@ function ServicesHub() {
                 to={c.to}
                 className="group relative flex w-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-[#D4AF37]/50 hover:shadow-2xl"
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                   <img
                     src={c.image}
                     alt={c.title}
-                    loading="lazy"
+                    loading={i < 3 ? "eager" : "lazy"}
+                    fetchPriority={i < 3 ? "high" : "auto"}
                     decoding="async"
                     width={800}
                     height={500}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/80 via-[#0B2545]/20 to-transparent" />
                   <div className="absolute left-5 top-5 grid h-12 w-12 place-items-center rounded-2xl gradient-gold text-[#0B2545] shadow-lg">
