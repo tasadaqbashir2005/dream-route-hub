@@ -327,7 +327,7 @@ function ContactPage() {
           </form>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }
 
