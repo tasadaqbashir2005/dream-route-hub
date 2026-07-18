@@ -156,6 +156,7 @@ function ContactPage() {
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (submitting) return; // prevent duplicate submissions
     const parsed = formSchema.safeParse(form);
     if (!parsed.success) {
       const errs: Partial<Record<keyof FormData, string>> = {};
@@ -169,13 +170,31 @@ function ContactPage() {
     setSubmitting(true);
     try {
       generatePDF(parsed.data);
-      const text = `Hello, I am ${parsed.data.fullName}. I am interested in ${parsed.data.service}. My location is ${parsed.data.location}. Please see my attached PDF application.`;
-      window.open(waLink(text), "_blank", "noopener,noreferrer");
+      const d = parsed.data;
+      const text =
+        `*NEW CLIENT APPLICATION — ${BRAND_NAME}*\n\n` +
+        `*Name:* ${d.fullName}\n` +
+        `*Phone:* ${d.phone}\n` +
+        `*Country:* ${d.country}\n` +
+        `*Current Location:* ${d.location}\n` +
+        `*Requested Service:* ${d.service}\n` +
+        `*Message:* ${d.message?.trim() || "—"}\n\n` +
+        `A branded PDF summary has been generated on the client's device and will be attached to this chat.`;
+      // Cross-platform WhatsApp handoff (mobile uses api.whatsapp.com deep link)
+      const isMobile = typeof window !== "undefined" && /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+      const url = isMobile
+        ? `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(text)}`
+        : waLink(text);
+      window.open(url, "_blank", "noopener,noreferrer");
       setDone(true);
+    } catch (err) {
+      console.error(err);
+      setErrors((prev) => ({ ...prev, message: "Something went wrong. Please try again or WhatsApp us directly." }));
     } finally {
       setSubmitting(false);
     }
   };
+
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="pt-32">
