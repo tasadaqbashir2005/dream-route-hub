@@ -29,25 +29,29 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
+function Counter({ to, suffix = "", decimals = 0 }: { to: number; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
   const [n, setN] = useState(0);
   useEffect(() => {
     if (!inView) return;
-    const dur = 1400;
+    const dur = 1800;
     const start = performance.now();
     let raf = 0;
     const tick = (t: number) => {
       const p = Math.min(1, (t - start) / dur);
-      setN(Math.floor(to * (1 - Math.pow(1 - p, 3))));
+      setN(to * (1 - Math.pow(1 - p, 3)));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [inView, to]);
-  return <span ref={ref}>{n.toLocaleString()}{suffix}</span>;
+  const formatted = decimals > 0
+    ? n.toFixed(decimals)
+    : Math.floor(n).toLocaleString();
+  return <span ref={ref}>{formatted}{suffix}</span>;
 }
+
 
 const services = [
   { icon: Plane, title: "Visit Visa", desc: "Schengen, UK, USA, Canada, Australia and more.", href: "/services" },
