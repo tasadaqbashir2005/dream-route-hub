@@ -46,6 +46,18 @@ export function Footer() {
               <Facebook className="h-4 w-4" />
             </a>
           </div>
+
+          {/* Official CR Registration — trust badge */}
+          <div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-[#D4AF37]/50 bg-[#D4AF37]/10 px-4 py-3 shadow-[0_0_20px_rgba(212,175,55,0.15)] backdrop-blur-sm">
+            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#D4AF37] text-[#0a1e3f]" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div className="leading-tight">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">Officially Registered</div>
+              <div className="text-sm font-bold text-white">CR No. <span className="tracking-wider">7052788051</span></div>
+            </div>
+          </div>
+
         </div>
 
         <div>
