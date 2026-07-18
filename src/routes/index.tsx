@@ -166,10 +166,10 @@ function HomePage() {
               From Global Visit visa and study visas to Umrah and Saudi Khidmat — we handle every step with white-glove precision, so you can travel with confidence.
             </p>
 
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link
                 to="/services"
-                className="group inline-flex items-center gap-2 rounded-full gradient-gold px-8 py-4 text-sm font-semibold text-[#0B2545] shadow-[0_10px_40px_-10px_rgba(212,175,55,0.7)] transition-all hover:scale-[1.04] hover:shadow-[0_15px_50px_-10px_rgba(212,175,55,0.9)]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full gradient-gold px-6 py-3.5 text-sm font-semibold text-[#0B2545] shadow-[0_10px_40px_-10px_rgba(212,175,55,0.7)] transition-all hover:scale-[1.04] hover:shadow-[0_15px_50px_-10px_rgba(212,175,55,0.9)] sm:px-8 sm:py-4"
               >
                 Apply Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
@@ -177,7 +177,7 @@ function HomePage() {
                 href={waLink("Hello, I'd like to inquire about your visa services.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-all hover:border-[#25D366] hover:bg-[#25D366]"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-all hover:border-[#25D366] hover:bg-[#25D366] sm:px-8 sm:py-4"
               >
                 <MessageCircle className="h-4 w-4" /> WhatsApp Us
               </a>
