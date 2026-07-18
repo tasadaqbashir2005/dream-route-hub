@@ -16,7 +16,7 @@ import {
   Quote,
 } from "lucide-react";
 import { waLink } from "@/lib/site-data";
-import bannerAsset from "@/assets/banner.jpg.asset.json";
+import logoAsset from "@/assets/logo-v2.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,8 +38,8 @@ export const Route = createFileRoute("/")({
         name: "SHAHID PRIME SERVICES",
         description: "International visa consultancy, Umrah packages, Saudi Khidmat services and airline ticketing.",
         areaServed: "Worldwide",
-        address: { "@type": "PostalAddress", addressCountry: "PK", addressLocality: "Islamabad" },
-        telephone: "+923114811886",
+        address: { "@type": "PostalAddress", addressCountry: "SA", addressLocality: "Jeddah" },
+        telephone: "+966592119762",
         email: "info@shahidprimeservices.com",
       }),
     }],
@@ -103,22 +103,18 @@ function HomePage() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate overflow-hidden gradient-royal">
         <div className="absolute inset-0 -z-10">
-          <img
-            src={bannerAsset.url}
-            alt="SHAHID PRIME SERVICES — Your Journey, Our Priority"
-            className="h-full w-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B2545]/85 via-[#0B2545]/60 to-[#0B2545]/40" />
+          <div className="absolute -left-24 -top-24 h-96 w-96 rounded-full bg-[#D4AF37]/20 blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl" />
         </div>
 
-        <div className="mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pt-40">
+        <div className="mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-16 pt-32 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:pt-40">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="max-w-3xl"
+            className="order-2 text-center lg:order-1 lg:text-left"
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-[#D4AF37] backdrop-blur">
               <Star className="h-3.5 w-3.5 fill-[#D4AF37]" /> Trusted Since 2015
@@ -130,10 +126,10 @@ function HomePage() {
               </span>{" "}
               & Saudi Services
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg lg:mx-0">
               From Schengen and study visas to Umrah and Saudi Khidmat — we handle every step with white-glove precision, so you can travel with confidence.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
               <Link
                 to="/services"
                 className="group inline-flex items-center gap-2 rounded-full gradient-gold px-7 py-4 text-sm font-semibold text-[#0B2545] shadow-xl transition-transform hover:scale-[1.03]"
@@ -144,14 +140,31 @@ function HomePage() {
                 href={waLink("Hello, I'd like to inquire about your visa services.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-[#25D366] hover:border-[#25D366]"
               >
                 <MessageCircle className="h-4 w-4" /> WhatsApp Us
               </a>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="order-1 flex justify-center lg:order-2 lg:justify-end"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-transparent blur-3xl" />
+              <img
+                src={logoAsset.url}
+                alt="SHAHID PRIME SERVICES — Travel | Visa | Consultancy"
+                className="mx-auto h-56 w-56 rounded-full object-contain shadow-2xl ring-4 ring-[#D4AF37]/50 sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-[420px] lg:w-[420px]"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
+
 
       {/* STATS */}
       <section className="relative -mt-16 px-4 pb-4 sm:px-6 lg:px-8">

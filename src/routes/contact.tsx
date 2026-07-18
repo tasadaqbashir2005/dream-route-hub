@@ -32,7 +32,6 @@ const formSchema = z.object({
     .max(20)
     .regex(/^[+\d][\d\s\-()]{6,19}$/, "Enter a valid phone number (digits, spaces, dashes only)"),
   country: z.string().trim().min(2, "Enter your country").max(60),
-  location: z.string().trim().min(2, "Enter your current location").max(100),
   service: z.string().trim().min(2, "Select a service").max(120),
   message: z.string().trim().max(1000).optional().default(""),
 });
@@ -46,7 +45,6 @@ function ContactPage() {
     fullName: "",
     phone: "",
     country: "",
-    location: "",
     service: search.service ?? "",
     message: "",
   });
@@ -104,7 +102,6 @@ function ContactPage() {
       ["Full Name", data.fullName],
       ["Phone Number", data.phone],
       ["Country", data.country],
-      ["Current Location", data.location],
       ["Requested Service", data.service],
     ];
 
@@ -176,7 +173,6 @@ function ContactPage() {
         `*Name:* ${d.fullName}\n` +
         `*Phone:* ${d.phone}\n` +
         `*Country:* ${d.country}\n` +
-        `*Current Location:* ${d.location}\n` +
         `*Requested Service:* ${d.service}\n` +
         `*Message:* ${d.message?.trim() || "—"}\n\n` +
         `A branded PDF summary has been generated on the client's device and will be attached to this chat.`;
@@ -266,10 +262,7 @@ function ContactPage() {
                 <input value={form.phone} onChange={(e) => update("phone", e.target.value)} placeholder="+92 300 0000000" className={inputCls} />
               </Field>
               <Field label="Country" error={errors.country}>
-                <input value={form.country} onChange={(e) => update("country", e.target.value)} placeholder="Pakistan" className={inputCls} />
-              </Field>
-              <Field label="Current Location" error={errors.location}>
-                <input value={form.location} onChange={(e) => update("location", e.target.value)} placeholder="Islamabad" className={inputCls} />
+                <input value={form.country} onChange={(e) => update("country", e.target.value)} placeholder="Saudi Arabia" className={inputCls} />
               </Field>
               <div className="sm:col-span-2">
                 <Field label="Select Service" error={errors.service}>

@@ -1,8 +1,10 @@
-export const WHATSAPP_NUMBER = "923114811886";
-export const WHATSAPP_DISPLAY = "03114811886";
+export const WHATSAPP_NUMBER = "966592119762";
+export const WHATSAPP_DISPLAY = "+966 59 211 9762";
 export const CONTACT_EMAIL = "info@shahidprimeservices.com";
-export const CONTACT_ADDRESS = "Islamabad, Pakistan";
+export const CONTACT_ADDRESS = "Jeddah, Saudi Arabia";
 export const BRAND_NAME = "SHAHID PRIME SERVICES";
+export const INSTAGRAM_URL = "https://instagram.com/sshahidprime";
+export const FACEBOOK_URL = "https://facebook.com/sshahidprime";
 
 export const waLink = (text?: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
