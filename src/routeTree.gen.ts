@@ -9,8 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -20,6 +22,11 @@ import { Route as ServicesStudyVisaRouteImport } from './routes/services_.study-
 import { Route as ServicesSaudiKhidmatRouteImport } from './routes/services_.saudi-khidmat'
 import { Route as ServicesAirlineTicketingRouteImport } from './routes/services_.airline-ticketing'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -28,6 +35,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -76,8 +88,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services/study-visa': typeof ServicesStudyVisaRoute
@@ -88,8 +102,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/services/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services/study-visa': typeof ServicesStudyVisaRoute
@@ -101,8 +117,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/services_/airline-ticketing': typeof ServicesAirlineTicketingRoute
   '/services_/saudi-khidmat': typeof ServicesSaudiKhidmatRoute
   '/services_/study-visa': typeof ServicesStudyVisaRoute
@@ -115,8 +133,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/privacy'
     | '/services'
     | '/sitemap.xml'
+    | '/terms'
     | '/services/airline-ticketing'
     | '/services/saudi-khidmat'
     | '/services/study-visa'
@@ -127,8 +147,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/privacy'
     | '/services'
     | '/sitemap.xml'
+    | '/terms'
     | '/services/airline-ticketing'
     | '/services/saudi-khidmat'
     | '/services/study-visa'
@@ -139,8 +161,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/privacy'
     | '/services'
     | '/sitemap.xml'
+    | '/terms'
     | '/services_/airline-ticketing'
     | '/services_/saudi-khidmat'
     | '/services_/study-visa'
@@ -152,8 +176,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   ServicesAirlineTicketingRoute: typeof ServicesAirlineTicketingRoute
   ServicesSaudiKhidmatRoute: typeof ServicesSaudiKhidmatRoute
   ServicesStudyVisaRoute: typeof ServicesStudyVisaRoute
@@ -163,6 +189,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -175,6 +208,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -240,8 +280,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   ServicesAirlineTicketingRoute: ServicesAirlineTicketingRoute,
   ServicesSaudiKhidmatRoute: ServicesSaudiKhidmatRoute,
   ServicesStudyVisaRoute: ServicesStudyVisaRoute,
