@@ -1,5 +1,5 @@
 import { createFileRoute, useSearch } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import jsPDF from "jspdf";
@@ -193,7 +193,7 @@ function ContactPage() {
 
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="relative">
+    <div className="relative">
       {/* Decorative page background */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] overflow-hidden">
         <div className="absolute inset-0 gradient-royal" />
@@ -327,7 +327,7 @@ function ContactPage() {
           </form>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }
 
